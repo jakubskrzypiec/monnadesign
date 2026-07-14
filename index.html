@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4.0.0">
+  <link rel="stylesheet" href="style.css?v=5.0.0">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -31,7 +31,7 @@
 
     <div class="header-actions">
       <div class="header-socials" aria-label="Social media">
-        <a href="https://www.instagram.com/monika.serbista.projektowanie?fbclid=IwY2xjawTCX4NleHRuA2FlbQIxMABicmlkETFYcEhzbmFaelFKMzZWRVgxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvQ3lwHQ5Caf3sXH4IBjgukIEouNwtAynQgIXtEzVdAMZXVq_cQYdV0U-Gnx_aem_8XwMfyRx29oDZRGlLki_iA" target="_blank" rel="noopener" aria-label="Instagram Monna Design">
+        <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener" aria-label="Instagram Monna Design">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.7" r=".8" class="fill"></circle></svg>
         </a>
         <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener" aria-label="Facebook Monna Design">
@@ -56,7 +56,7 @@
     </nav>
     <div class="mobile-menu__foot">
       <div class="mobile-socials">
-        <a href="https://www.instagram.com/monika.serbista.projektowanie?fbclid=IwY2xjawTCX4NleHRuA2FlbQIxMABicmlkETFYcEhzbmFaelFKMzZWRVgxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvQ3lwHQ5Caf3sXH4IBjgukIEouNwtAynQgIXtEzVdAMZXVq_cQYdV0U-Gnx_aem_8XwMfyRx29oDZRGlLki_iA" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Instagram ↗</a>
         <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Facebook ↗</a>
       </div>
       <a href="tel:+48516092967">+48 516 092 967</a>
@@ -80,7 +80,7 @@
       </div>
     </section>
 
-    <section class="studio-note" id="studio">
+    <section class="studio-note surface-concrete" id="studio">
       <div class="studio-note__inner">
         <div class="section-kicker reveal"><span>01</span> Studio</div>
         <h2 class="reveal">Projekt wnętrza powinien porządkować codzienność.</h2>
@@ -94,56 +94,89 @@
         <div class="section-kicker section-kicker--light reveal"><span>02</span> Zakres współpracy</div>
         <h2 class="reveal">Projekt dopasowany do inwestycji.</h2>
         <p class="services__lead reveal">Od jednego pomieszczenia po kompleksowy projekt domu lub mieszkania.</p>
-        <div class="service-list reveal">
-          <a class="service-item" href="#kontakt"><span>01</span><strong>Projekt mieszkania</strong><i>↗</i></a>
-          <a class="service-item" href="#kontakt"><span>02</span><strong>Projekt domu</strong><i>↗</i></a>
-          <a class="service-item" href="#kontakt"><span>03</span><strong>Wybrane pomieszczenie</strong><i>↗</i></a>
-          <a class="service-item" href="#kontakt"><span>04</span><strong>Konsultacja projektowa</strong><i>↗</i></a>
+
+        <div class="service-list reveal" data-service-list>
+          <article class="service-item is-open">
+            <button type="button" aria-expanded="true">
+              <span>01</span><strong>Projekt mieszkania</strong><i>+</i>
+            </button>
+            <div class="service-item__panel">
+              <p>Kompleksowy projekt obejmujący funkcję, koncepcję, materiały oraz dokumentację potrzebną do realizacji.</p>
+              <a href="#kontakt">Zapytaj o projekt <span>↗</span></a>
+            </div>
+          </article>
+          <article class="service-item">
+            <button type="button" aria-expanded="false">
+              <span>02</span><strong>Projekt domu</strong><i>+</i>
+            </button>
+            <div class="service-item__panel" hidden>
+              <p>Spójny kierunek dla całej inwestycji — od układu pomieszczeń po materiały, światło i detale wykonawcze.</p>
+              <a href="#kontakt">Zapytaj o projekt <span>↗</span></a>
+            </div>
+          </article>
+          <article class="service-item">
+            <button type="button" aria-expanded="false">
+              <span>03</span><strong>Wybrane pomieszczenie</strong><i>+</i>
+            </button>
+            <div class="service-item__panel" hidden>
+              <p>Kuchnia, łazienka, salon lub sypialnia opracowane jako osobny, precyzyjnie określony zakres.</p>
+              <a href="#kontakt">Zapytaj o projekt <span>↗</span></a>
+            </div>
+          </article>
+          <article class="service-item">
+            <button type="button" aria-expanded="false">
+              <span>04</span><strong>Konsultacja projektowa</strong><i>+</i>
+            </button>
+            <div class="service-item__panel" hidden>
+              <p>Skoncentrowane spotkanie, podczas którego porządkujemy decyzje, rozwiązania i dalszy kierunek projektu.</p>
+              <a href="#kontakt">Umów konsultację <span>↗</span></a>
+            </div>
+          </article>
         </div>
       </div>
       <div class="services__image reveal">
-        <img src="detail-02.jpg" alt="Minimalistyczny detal wnętrza z ciemną zabudową" loading="lazy">
+        <img src="separator-02.jpg" alt="Monochromatyczny detal wnętrza z rzeźbiarską formą" loading="lazy">
       </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio surface-graphite" id="portfolio">
       <div class="portfolio__head">
-        <div class="section-kicker section-kicker--light reveal"><span>03</span> Wybrane realizacje</div>
+        <div class="section-kicker reveal"><span>03</span> Wybrane realizacje</div>
         <h2 class="reveal">Wnętrza stworzone do życia.</h2>
         <p class="reveal">Najedź, aby zatrzymać galerię. Kliknij realizację, aby zobaczyć wszystkie ujęcia.</p>
       </div>
 
       <div class="project-marquee" data-project-marquee>
         <div class="project-rail" data-project-rail>
-          <button class="project-card" type="button" data-project="apartament" aria-label="Otwórz realizację: Apartament">
+          <button class="project-card" type="button" data-project="apartament" aria-label="Otwórz realizację: Apartament w Warszawie">
             <img src="pokojglowny.jpg" alt="Jasny salon z jadalnią" loading="lazy">
-            <span class="project-card__shade"></span><span class="project-card__ghost">MIEJSCOWOŚĆ</span>
-            <span class="project-card__meta"><small>Projekt 01</small><strong>Apartament</strong><em>— m²</em></span>
+            <span class="project-card__shade"></span>
+            <span class="project-card__meta"><small>Warszawa · 78 m²</small><strong>Apartament</strong></span>
           </button>
-          <button class="project-card project-card--tall" type="button" data-project="salon" aria-label="Otwórz realizację: Dom w neutralnych tonach">
+          <button class="project-card" type="button" data-project="salon" aria-label="Otwórz realizację: Dom w Ciechanowie">
             <img src="salon3.jpg" alt="Salon z jadalnią i dużym przeszkleniem" loading="lazy">
-            <span class="project-card__shade"></span><span class="project-card__ghost">MIEJSCOWOŚĆ</span>
-            <span class="project-card__meta"><small>Projekt 02</small><strong>Dom</strong><em>— m²</em></span>
+            <span class="project-card__shade"></span>
+            <span class="project-card__meta"><small>Ciechanów · 142 m²</small><strong>Dom</strong></span>
           </button>
-          <button class="project-card" type="button" data-project="kuchnia-salon" aria-label="Otwórz realizację: Strefa dzienna">
+          <button class="project-card" type="button" data-project="kuchnia-salon" aria-label="Otwórz realizację: Strefa dzienna w Płocku">
             <img src="salonkuchnia1.jpg" alt="Salon z kuchnią i drewnianą zabudową" loading="lazy">
-            <span class="project-card__shade"></span><span class="project-card__ghost">MIEJSCOWOŚĆ</span>
-            <span class="project-card__meta"><small>Projekt 03</small><strong>Strefa dzienna</strong><em>— m²</em></span>
+            <span class="project-card__shade"></span>
+            <span class="project-card__meta"><small>Płock · 56 m²</small><strong>Strefa dzienna</strong></span>
           </button>
-          <button class="project-card project-card--tall" type="button" data-project="lazienka" aria-label="Otwórz realizację: Łazienka pod skosem">
+          <button class="project-card" type="button" data-project="lazienka" aria-label="Otwórz realizację: Łazienka w Legionowie">
             <img src="lazienka1.jpg" alt="Łazienka pod skosem z wanną" loading="lazy">
-            <span class="project-card__shade"></span><span class="project-card__ghost">MIEJSCOWOŚĆ</span>
-            <span class="project-card__meta"><small>Projekt 04</small><strong>Łazienka</strong><em>— m²</em></span>
+            <span class="project-card__shade"></span>
+            <span class="project-card__meta"><small>Legionowo · 12 m²</small><strong>Łazienka</strong></span>
           </button>
-          <button class="project-card" type="button" data-project="sypialnia" aria-label="Otwórz realizację: Sypialnia">
+          <button class="project-card" type="button" data-project="sypialnia" aria-label="Otwórz realizację: Sypialnia w Olsztynie">
             <img src="sypialnia3.jpg" alt="Sypialnia w neutralnej palecie" loading="lazy">
-            <span class="project-card__shade"></span><span class="project-card__ghost">MIEJSCOWOŚĆ</span>
-            <span class="project-card__meta"><small>Projekt 05</small><strong>Sypialnia</strong><em>— m²</em></span>
+            <span class="project-card__shade"></span>
+            <span class="project-card__meta"><small>Olsztyn · 18 m²</small><strong>Sypialnia</strong></span>
           </button>
-          <button class="project-card project-card--tall" type="button" data-project="kuchnia-salon" aria-label="Otwórz realizację: Kuchnia i jadalnia">
+          <button class="project-card" type="button" data-project="kuchnia-salon" aria-label="Otwórz realizację: Kuchnia w Mławie">
             <img src="kuchnia1.jpg" alt="Kuchnia z jadalnią" loading="lazy">
-            <span class="project-card__shade"></span><span class="project-card__ghost">MIEJSCOWOŚĆ</span>
-            <span class="project-card__meta"><small>Projekt 06</small><strong>Kuchnia</strong><em>— m²</em></span>
+            <span class="project-card__shade"></span>
+            <span class="project-card__meta"><small>Mława · 34 m²</small><strong>Kuchnia</strong></span>
           </button>
         </div>
       </div>
@@ -157,17 +190,27 @@
 
     <section class="about" id="o-mnie">
       <div class="about__portrait reveal">
-        <img src="omnie.jpg" alt="Monika Serbista — projektantka wnętrz" loading="lazy">
+        <div class="about__portrait-frame">
+          <img src="omnie.jpg" alt="Monika Serbista — projektantka wnętrz" loading="lazy">
+        </div>
         <span>Monika Serbista</span>
       </div>
       <div class="about__copy">
         <div class="section-kicker section-kicker--light reveal"><span>04</span> O mnie</div>
         <h2 class="reveal">Doświadczenie widoczne w detalach.</h2>
         <p class="about__intro reveal">Nazywam się Monika Serbista i jestem projektantką wnętrz oraz właścicielką kupgotowyprojekt.pl.</p>
-        <div class="about__editorial reveal">
-          <p>Od 17 lat tworzę funkcjonalne, piękne i dopasowane do życia przestrzenie. Na swoim koncie mam setki zrealizowanych projektów — od przytulnych mieszkań po duże, wymagające inwestycje.</p>
-          <p>Przez lata zdobywałam doświadczenie nie tylko przy biurku, ale także na budowach, spędzając wiele godzin z wykonawcami. Dzięki temu świetnie znam produkty i rozwiązania, które sprawdzają się w praktyce, a moje projekty są nie tylko ładne, ale przede wszystkim ergonomiczne i realne do zrealizowania.</p>
+
+        <div class="about__story reveal">
+          <article>
+            <span>DOŚWIADCZENIE</span>
+            <p>Od 17 lat tworzę funkcjonalne, piękne i dopasowane do życia przestrzenie. Na swoim koncie mam setki zrealizowanych projektów — od przytulnych mieszkań po duże, wymagające inwestycje.</p>
+          </article>
+          <article>
+            <span>PRAKTYKA</span>
+            <p>Przez lata zdobywałam doświadczenie nie tylko przy biurku, ale także na budowach, spędzając wiele godzin z wykonawcami. Dzięki temu świetnie znam produkty i rozwiązania, które sprawdzają się w praktyce, a moje projekty są nie tylko ładne, ale przede wszystkim ergonomiczne i realne do zrealizowania.</p>
+          </article>
         </div>
+
         <div class="about__links reveal">
           <a class="line-link line-link--light" href="https://kupgotowyprojekt.pl/" target="_blank" rel="noopener">kupgotowyprojekt.pl <span>↗</span></a>
           <a class="line-link line-link--light" href="#kontakt">Porozmawiajmy <span>↘</span></a>
@@ -175,12 +218,12 @@
       </div>
     </section>
 
-    <section class="process" id="proces">
+    <section class="process surface-concrete" id="proces">
       <div class="process__image reveal">
-        <img src="detail-01.jpg" alt="Minimalistyczna kompozycja materiałów i światła" loading="lazy">
+        <img src="separator-03.jpg" alt="Monochromatyczny kącik wypoczynkowy i naturalne światło" loading="lazy">
       </div>
       <div class="process__copy">
-        <div class="section-kicker section-kicker--light reveal"><span>05</span> Proces</div>
+        <div class="section-kicker reveal"><span>05</span> Proces</div>
         <h2 class="reveal">Od rozmowy do wnętrza.</h2>
         <div class="process__steps reveal">
           <article><span>01</span><div><strong>Rozmowa</strong><p>Poznanie potrzeb, sposobu życia, zakresu inwestycji i oczekiwanego efektu.</p></div></article>
@@ -194,7 +237,7 @@
 
     <section class="contact" id="kontakt">
       <div class="contact__image">
-        <img src="detail-04.jpg" alt="Światło i materiały we wnętrzu" loading="lazy">
+        <img src="separator-01.jpg" alt="Kamienne formy, tkanina i minimalistyczna lampa" loading="lazy">
       </div>
       <div class="contact__panel">
         <div class="section-kicker section-kicker--light reveal"><span>06</span> Kontakt</div>
@@ -220,6 +263,62 @@
         </form>
       </div>
     </section>
+
+    <section class="social-faq" aria-label="Social media i najczęściej zadawane pytania">
+      <div class="social-showcase surface-concrete">
+        <div class="section-kicker reveal"><span>07</span> Social media</div>
+        <h2 class="reveal">Obserwuj Monna Design.</h2>
+        <p class="reveal">Aktualne realizacje, materiały z budowy i kulisy pracy pojawiają się regularnie na Instagramie i Facebooku.</p>
+
+        <div class="devices reveal" aria-label="Podgląd profilu Monna Design na Instagramie">
+          <div class="device device--laptop">
+            <span class="device__camera"></span>
+            <div class="device__screen"><img src="social-desktop.jpg" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="lazy"></div>
+            <span class="device__base"></span>
+          </div>
+          <div class="device device--phone">
+            <span class="device__speaker"></span>
+            <div class="device__screen"><img src="social-phone.jpg" alt="Mobilny podgląd profilu Monna Design" loading="lazy"></div>
+          </div>
+        </div>
+
+        <div class="social-showcase__links reveal">
+          <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Facebook <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="faq-panel">
+        <img src="separator-03.jpg" alt="" aria-hidden="true">
+        <div class="faq-panel__shade"></div>
+        <div class="faq-panel__content">
+          <div class="section-kicker section-kicker--light reveal"><span>08</span> FAQ</div>
+          <h2 class="reveal">Najczęściej zadawane pytania.</h2>
+          <div class="faq-list reveal">
+            <details open>
+              <summary>Czy można zamówić projekt jednego pomieszczenia?<span>+</span></summary>
+              <p>Tak. Zakres może obejmować pojedynczą kuchnię, łazienkę, salon, sypialnię albo inne wybrane wnętrze.</p>
+            </details>
+            <details>
+              <summary>Czy współpraca może odbywać się online?<span>+</span></summary>
+              <p>Tak. Sposób współpracy dobierany jest do lokalizacji, zakresu projektu i potrzeb inwestora.</p>
+            </details>
+            <details>
+              <summary>Jak długo trwa przygotowanie projektu?<span>+</span></summary>
+              <p>Termin zależy od metrażu i zakresu. Po krótkim briefie można określić realny harmonogram dla konkretnej inwestycji.</p>
+            </details>
+            <details>
+              <summary>Czy projekt zawiera listę materiałów?<span>+</span></summary>
+              <p>Zakres może obejmować dobór materiałów, wyposażenia i rozwiązań potrzebnych do świadomej realizacji projektu.</p>
+            </details>
+            <details>
+              <summary>Czy możliwe jest wsparcie podczas realizacji?<span>+</span></summary>
+              <p>Tak. Forma wsparcia i konsultacji podczas prac jest ustalana indywidualnie wraz z zakresem projektu.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -229,7 +328,7 @@
     </div>
     <div class="site-footer__meta">
       <span>© <span data-year></span> Monna Design</span><span>Monika Serbista</span>
-      <a href="https://www.instagram.com/monika.serbista.projektowanie?fbclid=IwY2xjawTCX4NleHRuA2FlbQIxMABicmlkETFYcEhzbmFaelFKMzZWRVgxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvQ3lwHQ5Caf3sXH4IBjgukIEouNwtAynQgIXtEzVdAMZXVq_cQYdV0U-Gnx_aem_8XwMfyRx29oDZRGlLki_iA" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Instagram ↗</a>
       <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Facebook ↗</a>
       <a href="https://kupgotowyprojekt.pl/polityka-prywatnosci/" target="_blank" rel="noopener">Polityka prywatności</a>
     </div>
@@ -242,6 +341,6 @@
     <button class="gallery__nav gallery__nav--next" type="button" aria-label="Następne zdjęcie">→</button>
   </dialog>
 
-  <script src="script.js?v=4.0.0" defer></script>
+  <script src="script.js?v=5.0.0" defer></script>
 </body>
 </html>
