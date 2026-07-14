@@ -270,6 +270,115 @@ button{color:inherit}
   .faq-list summary{font-size:14px}
 }
 
+
+/* V6 — interaction, motion and presentation fixes */
+.hero__wall-brand{
+  position:absolute;
+  z-index:1;
+  left:49.5%;
+  top:43%;
+  width:clamp(150px,15vw,265px);
+  transform:translate(calc(-50% + var(--brand-x,0px)),calc(-50% + var(--brand-y,0px)));
+  opacity:.105;
+  pointer-events:none;
+  mix-blend-mode:multiply;
+  filter:grayscale(1) contrast(.78) blur(.12px);
+  animation:wallBrandIn 1.6s cubic-bezier(.2,.75,.2,1) .35s both;
+}
+.hero__wall-brand img{display:block;width:100%;height:auto}
+@keyframes wallBrandIn{from{opacity:0;transform:translate(calc(-50% + var(--brand-x,0px)),calc(-44% + var(--brand-y,0px))) scale(.96)}to{opacity:.105;transform:translate(calc(-50% + var(--brand-x,0px)),calc(-50% + var(--brand-y,0px))) scale(1)}}
+
+/* Stable services image — accordion no longer changes the crop */
+.services{align-items:start;min-height:760px}
+.services__copy{min-height:760px}
+.services__image{
+  position:sticky;
+  top:var(--header-h);
+  align-self:start;
+  width:100%;
+  height:calc(100svh - var(--header-h));
+  min-height:700px;
+  max-height:880px;
+}
+.services__image img{position:absolute;inset:0;transform:none!important}
+.services__image:hover img{transform:none!important}
+.service-item{position:relative;overflow:hidden}
+.service-item::before{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:#fff;transition:width .45s cubic-bezier(.2,.75,.2,1)}
+.service-item:hover::before,.service-item.is-open::before{width:100%}
+.service-item__panel{
+  display:grid;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(-6px);
+  padding-top:0;
+  padding-bottom:0;
+  transition:max-height .48s cubic-bezier(.2,.75,.2,1),opacity .28s ease,transform .38s ease,padding .38s ease;
+}
+.service-item.is-open .service-item__panel{max-height:180px;opacity:1;transform:none;padding-bottom:22px}
+.service-item__panel[hidden]{display:grid}
+
+/* Robust seamless portfolio marquee */
+.project-marquee{overflow:hidden;touch-action:pan-y}
+.project-rail{padding-right:0;transform:translate3d(0,0,0)}
+.project-rail.is-running{animation:projectMarquee var(--marquee-duration,52s) linear infinite}
+.project-marquee.is-paused .project-rail{animation-play-state:paused}
+@keyframes projectMarquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(var(--marquee-shift,-1200px),0,0)}}
+.project-card{aspect-ratio:4/5;height:auto;flex-basis:clamp(285px,24vw,405px);transition:transform .35s ease,box-shadow .35s ease}
+.project-card:hover,.project-card:focus-visible{transform:translateY(-5px);box-shadow:0 24px 45px rgba(0,0,0,.22)}
+.project-card__meta small{font-size:10px}
+.project-card__meta strong{font-size:18px}
+
+/* More editorial motion without making the page heavy */
+.process__steps article{transition:background .3s ease,padding-left .3s ease}
+.process__steps article:hover{background:rgba(0,0,0,.035);padding-left:12px}
+.process__steps article:hover strong{transform:translateX(3px)}
+.process__steps strong{transition:transform .3s ease}
+.line-link span,.header-cta span,.social-showcase__links span{display:inline-block;transition:transform .25s ease}
+.line-link:hover span,.header-cta:hover span,.social-showcase__links a:hover span{transform:translate(3px,-3px)}
+.header-socials a{transition:opacity .25s ease,transform .25s ease}
+.header-socials a:hover{transform:translateY(-2px) scale(1.08)}
+
+/* Sharper and more legible social mockups */
+.devices{height:clamp(370px,36vw,560px);margin-bottom:38px}
+.device{box-shadow:0 34px 76px rgba(0,0,0,.22);transition:transform .45s cubic-bezier(.2,.75,.2,1),box-shadow .45s ease}
+.device--laptop{width:84%;height:auto;aspect-ratio:16/10;top:8%;border-radius:24px}
+.device--phone{width:25%;height:auto;aspect-ratio:9/19.5;right:1%;bottom:0;border-radius:32px;animation:phoneFloat 6s ease-in-out infinite}
+.device--laptop:hover{transform:translateY(-5px);box-shadow:0 42px 86px rgba(0,0,0,.26)}
+.device--phone:hover{animation-play-state:paused;transform:translateY(-7px) rotate(.6deg)}
+.device__screen img{image-rendering:auto;filter:none;backface-visibility:hidden}
+.device--laptop .device__screen img{object-fit:cover;object-position:center top;transform:scale(1.015);transform-origin:top center}
+.device--phone .device__screen img{object-fit:cover;object-position:center top}
+@keyframes phoneFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-9px) rotate(.45deg)}}
+
+/* FAQ readability */
+.faq-panel__shade{background:rgba(0,0,0,.57)}
+.faq-list summary{font-size:clamp(17px,1.18vw,20px);line-height:1.35;padding:23px 0;transition:padding-left .25s ease,color .25s ease}
+.faq-list summary:hover{padding-left:8px;color:#fff}
+.faq-list summary span{width:32px;height:32px;flex:0 0 32px}
+.faq-list p{font-size:clamp(14px,.92vw,16px);line-height:1.72;padding-bottom:24px;max-width:680px;animation:faqAnswerIn .28s ease both}
+@keyframes faqAnswerIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+@media(max-width:820px){
+  .hero__wall-brand{left:48%;top:41%;width:150px;opacity:.08}
+  .services{min-height:0}.services__copy{min-height:0}.services__image{position:relative;top:auto;height:72vw;min-height:0;max-height:none}
+  .project-rail.is-running{animation:none}
+  .project-marquee{overflow-x:auto;touch-action:pan-x}
+  .project-card{height:auto;aspect-ratio:4/5}
+  .devices{height:430px}
+  .device--laptop{width:88%;top:10%}
+  .device--phone{width:31%;right:0}
+  .faq-list summary{font-size:17px}
+  .faq-list p{font-size:14px}
+}
+
+@media(max-width:480px){
+  .hero__wall-brand{width:120px;left:45%;top:40%}
+  .devices{height:350px}
+  .device--laptop{width:94%;top:14%}
+  .device--phone{width:35%}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}
 }

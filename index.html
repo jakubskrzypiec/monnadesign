@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5.0.0">
+  <link rel="stylesheet" href="style.css?v=6.0.0">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -74,6 +74,9 @@
         <img src="hero-04.jpg" alt="" class="hero__frame" loading="eager">
         <img src="hero-05.jpg" alt="" class="hero__frame" loading="eager">
       </div>
+      <div class="hero__wall-brand" aria-hidden="true">
+        <img src="logo-black.png" alt="">
+      </div>
       <div class="hero__controls">
         <a class="hero-btn hero-btn--solid" href="#portfolio">Zobacz realizacje <span>↘</span></a>
         <a class="hero-btn" href="#kontakt">Umów konsultację <span>↗</span></a>
@@ -109,7 +112,7 @@
             <button type="button" aria-expanded="false">
               <span>02</span><strong>Projekt domu</strong><i>+</i>
             </button>
-            <div class="service-item__panel" hidden>
+            <div class="service-item__panel">
               <p>Spójny kierunek dla całej inwestycji — od układu pomieszczeń po materiały, światło i detale wykonawcze.</p>
               <a href="#kontakt">Zapytaj o projekt <span>↗</span></a>
             </div>
@@ -118,7 +121,7 @@
             <button type="button" aria-expanded="false">
               <span>03</span><strong>Wybrane pomieszczenie</strong><i>+</i>
             </button>
-            <div class="service-item__panel" hidden>
+            <div class="service-item__panel">
               <p>Kuchnia, łazienka, salon lub sypialnia opracowane jako osobny, precyzyjnie określony zakres.</p>
               <a href="#kontakt">Zapytaj o projekt <span>↗</span></a>
             </div>
@@ -127,7 +130,7 @@
             <button type="button" aria-expanded="false">
               <span>04</span><strong>Konsultacja projektowa</strong><i>+</i>
             </button>
-            <div class="service-item__panel" hidden>
+            <div class="service-item__panel">
               <p>Skoncentrowane spotkanie, podczas którego porządkujemy decyzje, rozwiązania i dalszy kierunek projektu.</p>
               <a href="#kontakt">Umów konsultację <span>↗</span></a>
             </div>
@@ -270,15 +273,15 @@
         <h2 class="reveal">Obserwuj Monna Design.</h2>
         <p class="reveal">Aktualne realizacje, materiały z budowy i kulisy pracy pojawiają się regularnie na Instagramie i Facebooku.</p>
 
-        <div class="devices reveal" aria-label="Podgląd profilu Monna Design na Instagramie">
+        <div class="devices reveal" aria-label="Podgląd profili Monna Design na Instagramie i Facebooku">
           <div class="device device--laptop">
             <span class="device__camera"></span>
-            <div class="device__screen"><img src="social-desktop.jpg" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="lazy"></div>
+            <div class="device__screen"><img src="social-instagram-desktop.png" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="lazy"></div>
             <span class="device__base"></span>
           </div>
           <div class="device device--phone">
             <span class="device__speaker"></span>
-            <div class="device__screen"><img src="social-phone.jpg" alt="Mobilny podgląd profilu Monna Design" loading="lazy"></div>
+            <div class="device__screen"><img src="social-facebook-phone.png" alt="Mobilny podgląd profilu Monna Design na Facebooku" loading="lazy"></div>
           </div>
         </div>
 
@@ -341,6 +344,6 @@
     <button class="gallery__nav gallery__nav--next" type="button" aria-label="Następne zdjęcie">→</button>
   </dialog>
 
-  <script src="script.js?v=5.0.0" defer></script>
+  <script src="script.js?v=6.0.0" defer></script>
 </body>
 </html>

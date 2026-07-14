@@ -37,6 +37,24 @@
     }, 2700);
   }
 
+
+  const wallBrand = document.querySelector('.hero__wall-brand');
+  const hero = document.querySelector('.hero');
+  if (wallBrand && hero && !reducedMotion) {
+    hero.addEventListener('pointermove', (event) => {
+      if (window.innerWidth <= 820) return;
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      wallBrand.style.setProperty('--brand-x', `${x * 5}px`);
+      wallBrand.style.setProperty('--brand-y', `${y * 4}px`);
+    });
+    hero.addEventListener('pointerleave', () => {
+      wallBrand.style.removeProperty('--brand-x');
+      wallBrand.style.removeProperty('--brand-y');
+    });
+  }
+
   const revealItems = document.querySelectorAll('.reveal');
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
@@ -55,46 +73,52 @@
   const serviceItems = [...document.querySelectorAll('.service-item')];
   serviceItems.forEach((item) => {
     const button = item.querySelector('button');
-    const panel = item.querySelector('.service-item__panel');
     button?.addEventListener('click', () => {
       const opening = button.getAttribute('aria-expanded') !== 'true';
       serviceItems.forEach((other) => {
-        const otherButton = other.querySelector('button');
-        const otherPanel = other.querySelector('.service-item__panel');
         other.classList.remove('is-open');
-        otherButton?.setAttribute('aria-expanded', 'false');
-        if (otherPanel) otherPanel.hidden = true;
+        other.querySelector('button')?.setAttribute('aria-expanded', 'false');
       });
       if (opening) {
         item.classList.add('is-open');
         button.setAttribute('aria-expanded', 'true');
-        if (panel) panel.hidden = false;
       }
     });
   });
 
   const marquee = document.querySelector('[data-project-marquee]');
   const rail = document.querySelector('[data-project-rail]');
-  let paused = false;
   let resumeTimer = null;
-  let lastTime = 0;
 
   if (marquee && rail) {
-    [...rail.children].forEach((card) => {
+    const originals = [...rail.children];
+    originals.forEach((card) => {
       const clone = card.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
       clone.setAttribute('tabindex', '-1');
       rail.appendChild(clone);
     });
 
-    const pause = () => {
-      paused = true;
-      marquee.classList.add('is-paused');
+    const measureMarquee = () => {
+      if (!originals.length || window.innerWidth <= 820 || reducedMotion) {
+        rail.classList.remove('is-running');
+        return;
+      }
+      const first = originals[0];
+      const firstClone = rail.children[originals.length];
+      if (!first || !firstClone) return;
+      const distance = firstClone.offsetLeft - first.offsetLeft;
+      if (distance <= 0) return;
+      rail.style.setProperty('--marquee-distance', `${distance}px`);
+      rail.style.setProperty('--marquee-shift', `${-distance}px`);
+      rail.style.setProperty('--marquee-duration', `${Math.max(34, distance / 48)}s`);
+      rail.classList.remove('is-running');
+      void rail.offsetWidth;
+      rail.classList.add('is-running');
     };
-    const resume = () => {
-      paused = false;
-      marquee.classList.remove('is-paused');
-    };
+
+    const pause = () => marquee.classList.add('is-paused');
+    const resume = () => marquee.classList.remove('is-paused');
 
     marquee.addEventListener('pointerenter', pause);
     marquee.addEventListener('pointerleave', resume);
@@ -103,22 +127,16 @@
     marquee.addEventListener('touchstart', () => {
       pause();
       window.clearTimeout(resumeTimer);
-      resumeTimer = window.setTimeout(resume, 2800);
+      resumeTimer = window.setTimeout(resume, 2600);
     }, { passive: true });
 
-    const move = (time) => {
-      if (!lastTime) lastTime = time;
-      const delta = Math.min(time - lastTime, 42);
-      lastTime = time;
-
-      if (!paused && !reducedMotion && window.innerWidth > 820) {
-        marquee.scrollLeft += delta * 0.055;
-        const halfway = rail.scrollWidth / 2;
-        if (marquee.scrollLeft >= halfway) marquee.scrollLeft -= halfway;
-      }
-      window.requestAnimationFrame(move);
-    };
-    window.requestAnimationFrame(move);
+    window.requestAnimationFrame(measureMarquee);
+    window.setTimeout(measureMarquee, 450);
+    rail.querySelectorAll('img').forEach((image) => {
+      image.addEventListener('load', measureMarquee, { once: true });
+      image.addEventListener('error', measureMarquee, { once: true });
+    });
+    window.addEventListener('resize', () => window.requestAnimationFrame(measureMarquee), { passive: true });
   }
 
   document.querySelectorAll('.faq-list details').forEach((details) => {
