@@ -1,13 +1,7 @@
-MONNA DESIGN — GOTOWA STRONA
+MONNA DESIGN — BLACK REWORK v3
 
-Wszystkie pliki znajdują się w jednym folderze.
-Nie twórz żadnych podfolderów.
-
-Wgraj całą zawartość tego folderu do głównego katalogu repozytorium GitHub:
-- index.html
-- style.css
-- script.js
-- favicon.png
-- wszystkie pliki JPG i PNG
-
-Następnie w GitHub Pages ustaw publikację z gałęzi main i folderu / (root).
+1. Wszystkie pliki są w jednym folderze.
+2. Wgraj całą zawartość folderu do głównego katalogu repozytorium GitHub.
+3. W GitHub Pages ustaw publikowanie z gałęzi main i katalogu /root.
+4. Po podmianie plików wykonaj twarde odświeżenie: Ctrl+F5 / Cmd+Shift+R.
+5. Formularz korzysta z FormSubmit i wysyła na kontakt@kupgotowyprojekt.pl.

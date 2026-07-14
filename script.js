@@ -6,9 +6,7 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  const updateHeader = () => {
-    header?.classList.toggle('is-scrolled', window.scrollY > 24);
-  };
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 18);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
@@ -21,19 +19,13 @@
     document.body.classList.toggle('menu-open', open);
   };
 
-  menuToggle?.addEventListener('click', () => {
-    setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
-  });
-
-  mobileMenu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setMenu(false));
-  });
-
+  menuToggle?.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+  mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') setMenu(false);
   });
 
-  // Hero: locked-frame sequence — only the blurred silhouette changes position.
+  // Hero: the room stays visually consistent while only the silhouette changes position.
   const frames = [...document.querySelectorAll('.hero__frame')];
   let frameIndex = 0;
   if (frames.length > 1 && !reducedMotion) {
@@ -44,37 +36,48 @@
     }, 5200);
   }
 
-  // Lightweight reveals.
+  // Lightweight scroll reveals.
   const revealItems = document.querySelectorAll('.reveal');
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   } else {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+        currentObserver.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    revealItems.forEach((item) => revealObserver.observe(item));
+    revealItems.forEach((item) => observer.observe(item));
   }
 
-  // Offer accordion.
-  document.querySelectorAll('.offer-row button').forEach((button) => {
-    button.addEventListener('click', () => {
-      const row = button.closest('.offer-row');
-      const list = row?.parentElement;
-      if (!row || !list) return;
-      const wasOpen = row.classList.contains('is-open');
-      list.querySelectorAll('.offer-row').forEach((other) => {
-        other.classList.remove('is-open');
-        other.querySelector('button')?.setAttribute('aria-expanded', 'false');
-      });
-      if (!wasOpen) {
-        row.classList.add('is-open');
-        button.setAttribute('aria-expanded', 'true');
-      }
+  // Service preview image on hover/focus/click.
+  const serviceItems = [...document.querySelectorAll('.service-item')];
+  const serviceImage = document.querySelector('[data-service-image]');
+  let serviceSwapTimer = null;
+
+  const activateService = (item) => {
+    if (!item || !serviceImage) return;
+    serviceItems.forEach((other) => {
+      const active = other === item;
+      other.classList.toggle('is-active', active);
+      other.setAttribute('aria-pressed', String(active));
     });
+    const nextImage = item.dataset.image;
+    if (!nextImage || serviceImage.getAttribute('src') === nextImage) return;
+    window.clearTimeout(serviceSwapTimer);
+    serviceImage.classList.add('is-changing');
+    serviceSwapTimer = window.setTimeout(() => {
+      serviceImage.src = nextImage;
+      serviceImage.onload = () => serviceImage.classList.remove('is-changing');
+      serviceImage.onerror = () => serviceImage.classList.remove('is-changing');
+    }, 170);
+  };
+
+  serviceItems.forEach((item) => {
+    item.addEventListener('mouseenter', () => activateService(item));
+    item.addEventListener('focus', () => activateService(item));
+    item.addEventListener('click', () => activateService(item));
   });
 
   const galleries = {
@@ -83,13 +86,6 @@
       images: [
         ['pokojglowny.jpg', 'Jasna strefa dzienna z jadalnią'],
         ['pokojglowny2.jpg', 'Detal salonu w neutralnych tonach']
-      ]
-    },
-    lazienka: {
-      title: 'Spokój pod skosem',
-      images: [
-        ['lazienka1.jpg', 'Łazienka pod skosem z wanną'],
-        ['lazienka2.jpg', 'Jasna łazienka z zabudową i lustrem']
       ]
     },
     salon: {
@@ -105,21 +101,23 @@
       title: 'Kontrast i drewno',
       images: [
         ['salonkuchnia1.jpg', 'Strefa dzienna z drewnianą zabudową'],
-        ['salonkuchnia2.jpg', 'Kuchnia z czarnymi detalami']
+        ['salonkuchnia2.jpg', 'Kuchnia z czarnymi detalami'],
+        ['kuchnia1.jpg', 'Kuchnia z jadalnią']
+      ]
+    },
+    lazienka: {
+      title: 'Spokój pod skosem',
+      images: [
+        ['lazienka1.jpg', 'Łazienka pod skosem z wanną'],
+        ['lazienka2.jpg', 'Jasna łazienka z zabudową i lustrem']
       ]
     },
     sypialnia: {
       title: 'Cisza zapisana w materiale',
       images: [
-        ['sypialnia1.jpg', 'Sypialnia w beżowej palecie'],
+        ['sypialnia1.jpg', 'Sypialnia w neutralnej palecie'],
         ['sypialnia2.jpg', 'Toaletka i zabudowa sypialni'],
-        ['sypialnia3.jpg', 'Miękkie tkaniny i światło w sypialni']
-      ]
-    },
-    kuchnia: {
-      title: 'Elegancja codzienności',
-      images: [
-        ['kuchnia1.jpg', 'Kuchnia z jadalnią i drewnianą zabudową']
+        ['sypialnia3.jpg', 'Miękkie tkaniny i światło']
       ]
     }
   };
@@ -133,14 +131,15 @@
 
   const renderGallery = () => {
     if (!activeGallery || !galleryImage || !galleryTitle || !galleryCount) return;
-    const item = activeGallery.images[activeImage];
+    const [source, alt] = activeGallery.images[activeImage];
     galleryImage.classList.add('is-changing');
     window.setTimeout(() => {
-      galleryImage.src = item[0];
-      galleryImage.alt = item[1];
-      galleryTitle.textContent = `${activeGallery.title} — ${item[1]}`;
+      galleryImage.src = source;
+      galleryImage.alt = alt;
+      galleryTitle.textContent = `${activeGallery.title} — ${alt}`;
       galleryCount.textContent = `${String(activeImage + 1).padStart(2, '0')} / ${String(activeGallery.images.length).padStart(2, '0')}`;
       galleryImage.onload = () => galleryImage.classList.remove('is-changing');
+      galleryImage.onerror = () => galleryImage.classList.remove('is-changing');
     }, 100);
   };
 
@@ -167,36 +166,26 @@
     renderGallery();
   };
 
-  document.querySelectorAll('[data-project]').forEach((card) => {
-    card.querySelector('button')?.addEventListener('click', () => openGallery(card.dataset.project));
+  document.querySelectorAll('[data-project]').forEach((project) => {
+    project.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => openGallery(project.dataset.project)));
   });
   dialog?.querySelector('.gallery__close')?.addEventListener('click', closeGallery);
   dialog?.querySelector('.gallery__nav--prev')?.addEventListener('click', () => moveGallery(-1));
   dialog?.querySelector('.gallery__nav--next')?.addEventListener('click', () => moveGallery(1));
-  dialog?.addEventListener('click', (event) => {
-    if (event.target === dialog) closeGallery();
-  });
-  dialog?.addEventListener('cancel', (event) => {
-    event.preventDefault();
-    closeGallery();
-  });
+  dialog?.addEventListener('click', (event) => { if (event.target === dialog) closeGallery(); });
+  dialog?.addEventListener('cancel', (event) => { event.preventDefault(); closeGallery(); });
   window.addEventListener('keydown', (event) => {
     if (!dialog?.open) return;
     if (event.key === 'ArrowLeft') moveGallery(-1);
     if (event.key === 'ArrowRight') moveGallery(1);
   });
 
-  // Basic swipe support inside the gallery.
   let touchStartX = 0;
-  dialog?.addEventListener('touchstart', (event) => {
-    touchStartX = event.changedTouches[0].clientX;
-  }, { passive: true });
+  dialog?.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
   dialog?.addEventListener('touchend', (event) => {
     const delta = event.changedTouches[0].clientX - touchStartX;
     if (Math.abs(delta) > 55) moveGallery(delta > 0 ? -1 : 1);
   }, { passive: true });
 
-  document.querySelectorAll('[data-year]').forEach((node) => {
-    node.textContent = new Date().getFullYear();
-  });
+  document.querySelectorAll('[data-year]').forEach((node) => { node.textContent = new Date().getFullYear(); });
 })();
