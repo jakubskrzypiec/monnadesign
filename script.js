@@ -1,12 +1,11 @@
 (() => {
   'use strict';
-
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('[data-header]');
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 18);
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
@@ -18,14 +17,10 @@
     header?.classList.toggle('menu-active', open);
     document.body.classList.toggle('menu-open', open);
   };
-
   menuToggle?.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
   mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-  window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') setMenu(false);
-  });
+  window.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenu(false); });
 
-  // Hero: the room stays visually consistent while only the silhouette changes position.
   const frames = [...document.querySelectorAll('.hero__frame')];
   let frameIndex = 0;
   if (frames.length > 1 && !reducedMotion) {
@@ -33,141 +28,100 @@
       frames[frameIndex].classList.remove('is-active');
       frameIndex = (frameIndex + 1) % frames.length;
       frames[frameIndex].classList.add('is-active');
-    }, 5200);
+    }, 3600);
   }
 
-  // Lightweight scroll reveals.
   const revealItems = document.querySelectorAll('.reveal');
-  if (reducedMotion || !('IntersectionObserver' in window)) {
-    revealItems.forEach((item) => item.classList.add('is-visible'));
-  } else {
+  if (reducedMotion || !('IntersectionObserver' in window)) revealItems.forEach((item) => item.classList.add('is-visible'));
+  else {
     const observer = new IntersectionObserver((entries, currentObserver) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
         currentObserver.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -7% 0px', threshold: 0.07 });
     revealItems.forEach((item) => observer.observe(item));
+    window.setTimeout(() => revealItems.forEach((item) => item.classList.add('is-visible')), 1800);
   }
 
-  // Service preview image on hover/focus/click.
-  const serviceItems = [...document.querySelectorAll('.service-item')];
-  const serviceImage = document.querySelector('[data-service-image]');
-  let serviceSwapTimer = null;
-
-  const activateService = (item) => {
-    if (!item || !serviceImage) return;
-    serviceItems.forEach((other) => {
-      const active = other === item;
-      other.classList.toggle('is-active', active);
-      other.setAttribute('aria-pressed', String(active));
+  const marquee = document.querySelector('[data-project-marquee]');
+  const rail = document.querySelector('[data-project-rail]');
+  let paused = false;
+  let resumeTimer = null;
+  let lastTime = 0;
+  if (marquee && rail) {
+    [...rail.children].forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      rail.appendChild(clone);
     });
-    const nextImage = item.dataset.image;
-    if (!nextImage || serviceImage.getAttribute('src') === nextImage) return;
-    window.clearTimeout(serviceSwapTimer);
-    serviceImage.classList.add('is-changing');
-    serviceSwapTimer = window.setTimeout(() => {
-      serviceImage.src = nextImage;
-      serviceImage.onload = () => serviceImage.classList.remove('is-changing');
-      serviceImage.onerror = () => serviceImage.classList.remove('is-changing');
-    }, 170);
-  };
-
-  serviceItems.forEach((item) => {
-    item.addEventListener('mouseenter', () => activateService(item));
-    item.addEventListener('focus', () => activateService(item));
-    item.addEventListener('click', () => activateService(item));
-  });
+    const pause = () => { paused = true; marquee.classList.add('is-paused'); };
+    const resume = () => { paused = false; marquee.classList.remove('is-paused'); };
+    marquee.addEventListener('pointerenter', pause);
+    marquee.addEventListener('pointerleave', resume);
+    marquee.addEventListener('focusin', pause);
+    marquee.addEventListener('focusout', resume);
+    marquee.addEventListener('touchstart', () => {
+      pause(); window.clearTimeout(resumeTimer); resumeTimer = window.setTimeout(resume, 2600);
+    }, { passive: true });
+    const move = (time) => {
+      if (!lastTime) lastTime = time;
+      const delta = Math.min(time - lastTime, 40);
+      lastTime = time;
+      if (!paused && !reducedMotion && window.innerWidth > 820) {
+        marquee.scrollLeft += delta * 0.045;
+        if (marquee.scrollLeft >= rail.scrollWidth / 2) marquee.scrollLeft -= rail.scrollWidth / 2;
+      }
+      window.requestAnimationFrame(move);
+    };
+    window.requestAnimationFrame(move);
+  }
 
   const galleries = {
-    apartament: {
-      title: 'Światło i miękkie formy',
-      images: [
-        ['pokojglowny.jpg', 'Jasna strefa dzienna z jadalnią'],
-        ['pokojglowny2.jpg', 'Detal salonu w neutralnych tonach']
-      ]
-    },
-    salon: {
-      title: 'Dom w neutralnych tonach',
-      images: [
-        ['salon1.jpg', 'Salon w jasnych tonach'],
-        ['salon2.jpg', 'Strefa telewizyjna z kominkiem'],
-        ['salon3.jpg', 'Jadalnia i duże przeszklenie'],
-        ['salon4.jpg', 'Salon otwarty na ogród']
-      ]
-    },
-    'kuchnia-salon': {
-      title: 'Kontrast i drewno',
-      images: [
-        ['salonkuchnia1.jpg', 'Strefa dzienna z drewnianą zabudową'],
-        ['salonkuchnia2.jpg', 'Kuchnia z czarnymi detalami'],
-        ['kuchnia1.jpg', 'Kuchnia z jadalnią']
-      ]
-    },
-    lazienka: {
-      title: 'Spokój pod skosem',
-      images: [
-        ['lazienka1.jpg', 'Łazienka pod skosem z wanną'],
-        ['lazienka2.jpg', 'Jasna łazienka z zabudową i lustrem']
-      ]
-    },
-    sypialnia: {
-      title: 'Cisza zapisana w materiale',
-      images: [
-        ['sypialnia1.jpg', 'Sypialnia w neutralnej palecie'],
-        ['sypialnia2.jpg', 'Toaletka i zabudowa sypialni'],
-        ['sypialnia3.jpg', 'Miękkie tkaniny i światło']
-      ]
-    }
+    apartament: { title: 'Apartament', images: [['pokojglowny.jpg','Jasna strefa dzienna z jadalnią'],['pokojglowny2.jpg','Detal salonu w neutralnych tonach']] },
+    salon: { title: 'Dom w neutralnych tonach', images: [['salon1.jpg','Salon w jasnych tonach'],['salon2.jpg','Strefa telewizyjna z kominkiem'],['salon3.jpg','Jadalnia i duże przeszklenie'],['salon4.jpg','Salon otwarty na ogród']] },
+    'kuchnia-salon': { title: 'Strefa dzienna', images: [['salonkuchnia1.jpg','Strefa dzienna z drewnianą zabudową'],['salonkuchnia2.jpg','Kuchnia z czarnymi detalami'],['kuchnia1.jpg','Kuchnia z jadalnią']] },
+    lazienka: { title: 'Łazienka pod skosem', images: [['lazienka1.jpg','Łazienka pod skosem z wanną'],['lazienka2.jpg','Jasna łazienka z zabudową i lustrem']] },
+    sypialnia: { title: 'Sypialnia', images: [['sypialnia1.jpg','Sypialnia w neutralnej palecie'],['sypialnia2.jpg','Toaletka i zabudowa sypialni'],['sypialnia3.jpg','Miękkie tkaniny i światło']] }
   };
-
   const dialog = document.querySelector('.gallery');
   const galleryImage = dialog?.querySelector('figure img');
   const galleryTitle = dialog?.querySelector('.gallery__title');
   const galleryCount = dialog?.querySelector('.gallery__count');
-  let activeGallery = null;
-  let activeImage = 0;
-
+  let activeGallery = null; let activeImage = 0;
   const renderGallery = () => {
     if (!activeGallery || !galleryImage || !galleryTitle || !galleryCount) return;
     const [source, alt] = activeGallery.images[activeImage];
     galleryImage.classList.add('is-changing');
     window.setTimeout(() => {
-      galleryImage.src = source;
-      galleryImage.alt = alt;
+      galleryImage.src = source; galleryImage.alt = alt;
       galleryTitle.textContent = `${activeGallery.title} — ${alt}`;
-      galleryCount.textContent = `${String(activeImage + 1).padStart(2, '0')} / ${String(activeGallery.images.length).padStart(2, '0')}`;
+      galleryCount.textContent = `${String(activeImage + 1).padStart(2,'0')} / ${String(activeGallery.images.length).padStart(2,'0')}`;
       galleryImage.onload = () => galleryImage.classList.remove('is-changing');
       galleryImage.onerror = () => galleryImage.classList.remove('is-changing');
-    }, 100);
+    }, 90);
   };
-
   const openGallery = (key) => {
     if (!dialog || !galleries[key]) return;
-    activeGallery = galleries[key];
-    activeImage = 0;
-    renderGallery();
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', '');
+    activeGallery = galleries[key]; activeImage = 0; renderGallery();
+    if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open','');
     document.body.style.overflow = 'hidden';
   };
-
   const closeGallery = () => {
     if (!dialog) return;
-    if (typeof dialog.close === 'function') dialog.close();
-    else dialog.removeAttribute('open');
+    if (typeof dialog.close === 'function') dialog.close(); else dialog.removeAttribute('open');
     document.body.style.overflow = '';
   };
-
   const moveGallery = (direction) => {
     if (!activeGallery) return;
     activeImage = (activeImage + direction + activeGallery.images.length) % activeGallery.images.length;
     renderGallery();
   };
-
-  document.querySelectorAll('[data-project]').forEach((project) => {
-    project.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => openGallery(project.dataset.project)));
+  document.addEventListener('click', (event) => {
+    const card = event.target.closest('[data-project]');
+    if (card) openGallery(card.dataset.project);
   });
   dialog?.querySelector('.gallery__close')?.addEventListener('click', closeGallery);
   dialog?.querySelector('.gallery__nav--prev')?.addEventListener('click', () => moveGallery(-1));
@@ -178,8 +132,8 @@
     if (!dialog?.open) return;
     if (event.key === 'ArrowLeft') moveGallery(-1);
     if (event.key === 'ArrowRight') moveGallery(1);
+    if (event.key === 'Escape') closeGallery();
   });
-
   let touchStartX = 0;
   dialog?.addEventListener('touchstart', (event) => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
   dialog?.addEventListener('touchend', (event) => {
