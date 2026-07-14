@@ -38,23 +38,6 @@
   }
 
 
-  const wallBrand = document.querySelector('.hero__wall-brand');
-  const hero = document.querySelector('.hero');
-  if (wallBrand && hero && !reducedMotion) {
-    hero.addEventListener('pointermove', (event) => {
-      if (window.innerWidth <= 820) return;
-      const rect = hero.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      wallBrand.style.setProperty('--brand-x', `${x * 5}px`);
-      wallBrand.style.setProperty('--brand-y', `${y * 4}px`);
-    });
-    hero.addEventListener('pointerleave', () => {
-      wallBrand.style.removeProperty('--brand-x');
-      wallBrand.style.removeProperty('--brand-y');
-    });
-  }
-
   const revealItems = document.querySelectorAll('.reveal');
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
