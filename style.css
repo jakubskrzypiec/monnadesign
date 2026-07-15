@@ -881,3 +881,17 @@ body.is-loading{overflow:hidden}
 .site-intro{animation:introFailsafe .75s ease 4s forwards}
 .site-intro.is-hidden{animation:none}
 @keyframes introFailsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
+
+
+/* V6.6 — studio section reduced to one centered changing statement */
+.studio-note--centered{min-height:62svh;padding:clamp(76px,8vw,118px) var(--pad-x)}
+.studio-note__inner--centered{display:block!important;width:min(1320px,100%);margin:0 auto!important}
+.studio-note--centered .studio-rotator{min-height:360px;max-width:100%;padding-inline:0;place-items:center;text-align:center}
+.studio-note--centered .studio-rotator__stage{min-height:240px;max-width:min(980px,100%);margin:0 auto}
+.studio-note--centered .studio-rotator__line{max-width:16ch;font-size:clamp(56px,6.4vw,110px);line-height:.9;letter-spacing:-.075em}
+@media (max-width:900px){
+  .studio-note--centered{min-height:46svh;padding:72px 18px}
+  .studio-note--centered .studio-rotator{min-height:260px}
+  .studio-note--centered .studio-rotator__stage{min-height:180px}
+  .studio-note--centered .studio-rotator__line{font-size:clamp(38px,10vw,64px);max-width:12ch}
+}
