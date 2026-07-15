@@ -67,8 +67,18 @@
     ).join(' ');
   });
 
+  // Double requestAnimationFrame gives Safari time to paint the original
+  // text before the animated word spans become active.
+  if (rotator) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => rotator.classList.add('is-ready'));
+    });
+  }
+
   if (rotatorLines.length > 1 && !reducedMotion) {
     let rotatorIndex = 0;
+    let rotationTimer = null;
+
     const changeLine = () => {
       const current = rotatorLines[rotatorIndex];
       const nextIndex = (rotatorIndex + 1) % rotatorLines.length;
@@ -83,10 +93,17 @@
     };
 
     window.setTimeout(() => {
-      window.setInterval(changeLine, 3400);
-    }, 1300);
-  } else {
-    rotator?.classList.add('is-ready');
+      rotationTimer = window.setInterval(changeLine, 3400);
+    }, 1600);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && rotationTimer) {
+        window.clearInterval(rotationTimer);
+        rotationTimer = null;
+      } else if (!document.hidden && !rotationTimer) {
+        rotationTimer = window.setInterval(changeLine, 3400);
+      }
+    });
   }
 
   const serviceItems = [...document.querySelectorAll('.service-item')];

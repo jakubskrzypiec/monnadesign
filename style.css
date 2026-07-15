@@ -964,3 +964,68 @@ body.is-loading{overflow:hidden}
 /* V6.8 — intro removed */
 body.is-loading{overflow:auto!important}
 .site-intro{display:none!important}
+
+
+/* V6.9 — Safari-safe rotating statement */
+.studio-note--centered .studio-rotator__line{
+  visibility:hidden;
+  opacity:1;
+  transform:none;
+  filter:none;
+  -webkit-filter:none;
+}
+.studio-note--centered .studio-rotator__line.is-active,
+.studio-note--centered .studio-rotator__line.is-leaving{
+  visibility:visible;
+}
+.studio-rotator__word{
+  display:inline-block;
+  margin-right:.22em;
+  opacity:1;
+  transform:none;
+  -webkit-transform:none;
+  filter:none;
+  -webkit-filter:none;
+  will-change:transform,opacity;
+}
+.studio-rotator__word:last-child{margin-right:0}
+
+/* Hide only after JS confirms that animation is ready. */
+.studio-rotator.is-ready .studio-rotator__line:not(.is-active):not(.is-leaving) .studio-rotator__word{
+  opacity:0;
+  transform:translate3d(0,.6em,0);
+  -webkit-transform:translate3d(0,.6em,0);
+}
+.studio-rotator.is-ready .studio-rotator__line.is-active .studio-rotator__word{
+  animation:studioWordInSafari .72s cubic-bezier(.16,.76,.18,1) both;
+  -webkit-animation:studioWordInSafari .72s cubic-bezier(.16,.76,.18,1) both;
+  animation-delay:calc(var(--word-index) * 62ms);
+  -webkit-animation-delay:calc(var(--word-index) * 62ms);
+}
+.studio-rotator.is-ready .studio-rotator__line.is-leaving .studio-rotator__word{
+  animation:studioWordOutSafari .48s cubic-bezier(.55,0,.8,.2) both;
+  -webkit-animation:studioWordOutSafari .48s cubic-bezier(.55,0,.8,.2) both;
+  animation-delay:calc((var(--word-count) - var(--word-index)) * 22ms);
+  -webkit-animation-delay:calc((var(--word-count) - var(--word-index)) * 22ms);
+}
+@keyframes studioWordInSafari{
+  0%{opacity:0;transform:translate3d(0,.65em,0) rotate(1deg)}
+  100%{opacity:1;transform:translate3d(0,0,0) rotate(0)}
+}
+@-webkit-keyframes studioWordInSafari{
+  0%{opacity:0;-webkit-transform:translate3d(0,.65em,0) rotate(1deg)}
+  100%{opacity:1;-webkit-transform:translate3d(0,0,0) rotate(0)}
+}
+@keyframes studioWordOutSafari{
+  0%{opacity:1;transform:translate3d(0,0,0)}
+  100%{opacity:0;transform:translate3d(0,-.48em,0) rotate(-.6deg)}
+}
+@-webkit-keyframes studioWordOutSafari{
+  0%{opacity:1;-webkit-transform:translate3d(0,0,0)}
+  100%{opacity:0;-webkit-transform:translate3d(0,-.48em,0) rotate(-.6deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .studio-note--centered .studio-rotator__line{visibility:hidden}
+  .studio-note--centered .studio-rotator__line.is-active{visibility:visible}
+  .studio-rotator__word{opacity:1!important;transform:none!important;-webkit-transform:none!important;animation:none!important;-webkit-animation:none!important}
+}
