@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6.2.0">
+  <link rel="stylesheet" href="style.css?v=6.3.0">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -89,17 +89,25 @@
           <a class="line-link reveal" href="#o-mnie">Poznaj studio <span>↘</span></a>
         </div>
 
-        <div class="studio-note__visual" data-parallax-area aria-label="Materiały, światło i detal w projektowaniu wnętrz">
-          <figure class="studio-visual studio-visual--main media-reveal reveal" data-parallax="10">
-            <img src="detail-02.jpg" alt="Ciemna ściana z pionowym rytmem, miękka forma fotela i naturalne światło" loading="lazy">
-          </figure>
-          <figure class="studio-visual studio-visual--detail media-reveal reveal" data-parallax="-7">
-            <img src="separator-01.jpg" alt="Kamienne formy i lampa w świetle dziennym" loading="lazy">
-          </figure>
-          <div class="studio-visual__caption reveal">
-            <span>Światło</span><span>Materiał</span><span>Detal</span>
+        <div class="studio-materials reveal" aria-label="Trzy elementy budujące dobre wnętrze">
+          <div class="studio-materials__head">
+            <span>Materiały / światło / detal</span>
+            <strong>Trzy warstwy, które nadają wnętrzu charakter.</strong>
           </div>
-          <div class="studio-visual__index" aria-hidden="true">01</div>
+          <div class="material-rail">
+            <article class="material-panel" tabindex="0">
+              <img src="detail-02.jpg" alt="Ciemna ściana z pionowym rytmem i naturalnym światłem" loading="lazy">
+              <div class="material-panel__copy"><span>01</span><strong>Światło</strong><small>Buduje rytm i głębię.</small></div>
+            </article>
+            <article class="material-panel" tabindex="0">
+              <img src="separator-02.jpg" alt="Monochromatyczna kompozycja miękkich i kamiennych materiałów" loading="lazy">
+              <div class="material-panel__copy"><span>02</span><strong>Materiał</strong><small>Decyduje o odbiorze przestrzeni.</small></div>
+            </article>
+            <article class="material-panel" tabindex="0">
+              <img src="detail-04.jpg" alt="Minimalistyczny detal wnętrza w czarno-białej palecie" loading="lazy">
+              <div class="material-panel__copy"><span>03</span><strong>Detal</strong><small>Domyka całą kompozycję.</small></div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -285,12 +293,12 @@
         <div class="social-collage reveal" data-parallax-area aria-label="Podgląd profili Monna Design na Instagramie i Facebooku">
           <span class="social-collage__word" aria-hidden="true">FOLLOW</span>
 
-          <a class="social-shot social-shot--instagram media-reveal" data-parallax="8" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">
+          <a class="social-shot social-shot--instagram" data-parallax="8" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">
             <span class="social-shot__label">Instagram <i>↗</i></span>
             <img src="social-instagram-desktop.png" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="eager">
           </a>
 
-          <a class="social-shot social-shot--facebook media-reveal" data-parallax="-10" href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">
+          <a class="social-shot social-shot--facebook" data-parallax="-10" href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">
             <span class="social-shot__label">Facebook <i>↗</i></span>
             <img src="social-facebook-phone.png" alt="Mobilny profil Monika Serbista Projektowanie Wnętrz na Facebooku" loading="eager">
           </a>
@@ -360,6 +368,6 @@
     <button class="gallery__nav gallery__nav--next" type="button" aria-label="Następne zdjęcie">→</button>
   </dialog>
 
-  <script src="script.js?v=6.2.0" defer></script>
+  <script src="script.js?v=6.3.0" defer></script>
 </body>
 </html>
