@@ -959,3 +959,8 @@ body.is-loading{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .studio-rotator__word{opacity:1;transform:none;filter:none;animation:none!important}
 }
+
+
+/* V6.8 — intro removed */
+body.is-loading{overflow:auto!important}
+.site-intro{display:none!important}

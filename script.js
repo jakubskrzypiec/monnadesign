@@ -2,8 +2,6 @@
   'use strict';
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const intro = document.querySelector('.site-intro');
-  document.body.classList.add('is-loading');
   const header = document.querySelector('[data-header]');
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -11,20 +9,6 @@
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
-
-  const finishIntro = () => {
-    document.body.classList.remove('is-loading');
-    if (!intro) return;
-    intro.classList.add('is-hidden');
-    document.querySelector('[data-rotator]')?.classList.add('is-ready');
-    window.setTimeout(() => intro.remove(), 1000);
-  };
-
-  if (document.readyState === 'complete') {
-    window.setTimeout(finishIntro, reducedMotion ? 180 : 1100);
-  } else {
-    window.addEventListener('load', () => window.setTimeout(finishIntro, reducedMotion ? 180 : 1100), { once: true });
-  }
 
   const setMenu = (open) => {
     if (!menuToggle || !mobileMenu) return;
