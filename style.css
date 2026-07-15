@@ -895,3 +895,67 @@ body.is-loading{overflow:hidden}
   .studio-note--centered .studio-rotator__stage{min-height:180px}
   .studio-note--centered .studio-rotator__line{font-size:clamp(38px,10vw,64px);max-width:12ch}
 }
+
+
+/* V6.7 — lower statement band and word-by-word premium transition */
+.studio-note--centered{
+  min-height:48svh;
+  padding:clamp(48px,5.2vw,76px) var(--pad-x);
+}
+.studio-note--centered .studio-rotator{
+  min-height:260px;
+}
+.studio-note--centered .studio-rotator__stage{
+  min-height:176px;
+  max-width:min(1120px,100%);
+  overflow:hidden;
+}
+.studio-note--centered .studio-rotator__line{
+  max-width:17ch;
+  font-size:clamp(52px,5.9vw,100px);
+  opacity:1;
+  visibility:hidden;
+  transform:none;
+  filter:none;
+  transition:none;
+}
+.studio-note--centered .studio-rotator__line.is-active,
+.studio-note--centered .studio-rotator__line.is-leaving{
+  visibility:visible;
+}
+.studio-rotator__word{
+  display:inline-block;
+  margin-right:.22em;
+  opacity:0;
+  transform:translateY(.75em) rotate(1.5deg);
+  transform-origin:50% 100%;
+  filter:blur(10px);
+  will-change:transform,opacity,filter;
+}
+.studio-rotator__word:last-child{margin-right:0}
+.studio-rotator.is-ready .studio-rotator__line.is-active .studio-rotator__word{
+  animation:studioWordIn .78s cubic-bezier(.16,.76,.18,1) forwards;
+  animation-delay:calc(var(--word-index) * 65ms);
+}
+.studio-rotator.is-ready .studio-rotator__line.is-leaving .studio-rotator__word{
+  animation:studioWordOut .5s cubic-bezier(.55,0,.8,.2) forwards;
+  animation-delay:calc((var(--word-count) - var(--word-index)) * 24ms);
+}
+@keyframes studioWordIn{
+  0%{opacity:0;transform:translateY(.75em) rotate(1.5deg);filter:blur(10px)}
+  58%{opacity:1;filter:blur(1px)}
+  100%{opacity:1;transform:translateY(0) rotate(0);filter:blur(0)}
+}
+@keyframes studioWordOut{
+  0%{opacity:1;transform:translateY(0);filter:blur(0)}
+  100%{opacity:0;transform:translateY(-.52em) rotate(-1deg);filter:blur(8px)}
+}
+@media(max-width:900px){
+  .studio-note--centered{min-height:38svh;padding:44px 18px}
+  .studio-note--centered .studio-rotator{min-height:220px}
+  .studio-note--centered .studio-rotator__stage{min-height:148px}
+  .studio-note--centered .studio-rotator__line{font-size:clamp(36px,9.6vw,60px);max-width:13ch}
+}
+@media(prefers-reduced-motion:reduce){
+  .studio-rotator__word{opacity:1;transform:none;filter:none;animation:none!important}
+}
