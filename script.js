@@ -2,6 +2,8 @@
   'use strict';
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const intro = document.querySelector('.site-intro');
+  document.body.classList.add('is-loading');
   const header = document.querySelector('[data-header]');
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -9,6 +11,19 @@
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
+
+  const finishIntro = () => {
+    document.body.classList.remove('is-loading');
+    if (!intro) return;
+    intro.classList.add('is-hidden');
+    window.setTimeout(() => intro.remove(), 1000);
+  };
+
+  if (document.readyState === 'complete') {
+    window.setTimeout(finishIntro, reducedMotion ? 180 : 1100);
+  } else {
+    window.addEventListener('load', () => window.setTimeout(finishIntro, reducedMotion ? 180 : 1100), { once: true });
+  }
 
   const setMenu = (open) => {
     if (!menuToggle || !mobileMenu) return;
@@ -39,6 +54,9 @@
 
 
   const revealItems = document.querySelectorAll('.reveal');
+  revealItems.forEach((item, index) => {
+    item.style.setProperty('--reveal-delay', `${Math.min((index % 6) * 0.05, 0.25)}s`);
+  });
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   } else {
@@ -51,6 +69,17 @@
     }, { rootMargin: '0px 0px -7% 0px', threshold: 0.07 });
     revealItems.forEach((item) => observer.observe(item));
     window.setTimeout(() => revealItems.forEach((item) => item.classList.add('is-visible')), 2200);
+  }
+
+  const rotator = document.querySelector('[data-rotator]');
+  const rotatorLines = rotator ? [...rotator.querySelectorAll('.studio-rotator__line')] : [];
+  if (rotatorLines.length > 1 && !reducedMotion) {
+    let rotatorIndex = 0;
+    window.setInterval(() => {
+      rotatorLines[rotatorIndex].classList.remove('is-active');
+      rotatorIndex = (rotatorIndex + 1) % rotatorLines.length;
+      rotatorLines[rotatorIndex].classList.add('is-active');
+    }, 2600);
   }
 
   const serviceItems = [...document.querySelectorAll('.service-item')];
@@ -254,20 +283,41 @@
   if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
     parallaxAreas.forEach((area) => {
       let raf = null;
+      const layers = [...area.querySelectorAll('[data-parallax]')];
       const update = (event) => {
         const rect = area.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
-        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+        const x = ((event.clientX - rect.left) / rect.width - 0.5);
+        const y = ((event.clientY - rect.top) / rect.height - 0.5);
         if (raf) cancelAnimationFrame(raf);
         raf = requestAnimationFrame(() => {
-          area.style.setProperty('--mx', `${x}px`);
-          area.style.setProperty('--my', `${y}px`);
+          layers.forEach((layer) => {
+            const depth = Number(layer.dataset.parallax || 0);
+            layer.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
+          });
         });
       };
       area.addEventListener('pointermove', update);
       area.addEventListener('pointerleave', () => {
-        area.style.setProperty('--mx', '0px');
-        area.style.setProperty('--my', '0px');
+        layers.forEach((layer) => { layer.style.transform = ''; });
+      });
+    });
+  }
+
+  const magneticTargets = document.querySelectorAll('.hero-btn, .line-link, .social-showcase__links a, .submit-btn');
+  if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
+    magneticTargets.forEach((target) => {
+      let raf = null;
+      target.addEventListener('pointermove', (event) => {
+        const rect = target.getBoundingClientRect();
+        const x = (event.clientX - rect.left - rect.width / 2) * 0.08;
+        const y = (event.clientY - rect.top - rect.height / 2) * 0.12;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          target.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+      target.addEventListener('pointerleave', () => {
+        target.style.transform = '';
       });
     });
   }

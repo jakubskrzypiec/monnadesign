@@ -10,10 +10,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6.3.0">
+  <link rel="stylesheet" href="style.css?v=6.4.0">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <div class="site-intro" aria-hidden="true">
+    <div class="site-intro__inner">
+      <img src="monogram-white.png" alt="" class="site-intro__mark">
+      <div class="site-intro__copy"><strong>MONNA DESIGN</strong><span>Projektowanie wnętrz Monika Serbista</span></div>
+      <div class="site-intro__line"><i></i></div>
+    </div>
+  </div>
 
   <header class="site-header" data-header>
     <a class="brand" href="#start" aria-label="Monna Design — strona główna">
@@ -89,24 +97,20 @@
           <a class="line-link reveal" href="#o-mnie">Poznaj studio <span>↘</span></a>
         </div>
 
-        <div class="studio-materials reveal" aria-label="Trzy elementy budujące dobre wnętrze">
-          <div class="studio-materials__head">
-            <span>Materiały / światło / detal</span>
-            <strong>Trzy warstwy, które nadają wnętrzu charakter.</strong>
+        <div class="studio-rotator reveal" data-rotator aria-label="Podejście Monna Design">
+          <span class="studio-rotator__kicker">Wnętrza / funkcja / proporcja / detal</span>
+          <div class="studio-rotator__stage" aria-live="polite">
+            <p class="studio-rotator__line is-active">Wnętrza, które uspokajają codzienność.</p>
+            <p class="studio-rotator__line">Wnętrza, które pracują światłem.</p>
+            <p class="studio-rotator__line">Wnętrza, które zostają na lata.</p>
+            <p class="studio-rotator__line">Wnętrza, które są piękne i realne.</p>
           </div>
-          <div class="material-rail">
-            <article class="material-panel" tabindex="0">
-              <img src="detail-02.jpg" alt="Ciemna ściana z pionowym rytmem i naturalnym światłem" loading="lazy">
-              <div class="material-panel__copy"><span>01</span><strong>Światło</strong><small>Buduje rytm i głębię.</small></div>
-            </article>
-            <article class="material-panel" tabindex="0">
-              <img src="separator-02.jpg" alt="Monochromatyczna kompozycja miękkich i kamiennych materiałów" loading="lazy">
-              <div class="material-panel__copy"><span>02</span><strong>Materiał</strong><small>Decyduje o odbiorze przestrzeni.</small></div>
-            </article>
-            <article class="material-panel" tabindex="0">
-              <img src="detail-04.jpg" alt="Minimalistyczny detal wnętrza w czarno-białej palecie" loading="lazy">
-              <div class="material-panel__copy"><span>03</span><strong>Detal</strong><small>Domyka całą kompozycję.</small></div>
-            </article>
+          <p class="studio-rotator__desc">Każda decyzja ma znaczenie — od funkcji i ergonomii po proporcję materiałów, światło i detal wykonania.</p>
+          <div class="studio-rotator__tags" aria-hidden="true">
+            <span>Funkcja</span>
+            <span>Światło</span>
+            <span>Materiał</span>
+            <span>Detal</span>
           </div>
         </div>
       </div>
@@ -290,22 +294,32 @@
         <h2 class="reveal">Obserwuj Monna Design.</h2>
         <p class="reveal">Aktualne realizacje, materiały z budowy i kulisy pracy pojawiają się regularnie na Instagramie i Facebooku.</p>
 
-        <div class="social-collage reveal" data-parallax-area aria-label="Podgląd profili Monna Design na Instagramie i Facebooku">
-          <span class="social-collage__word" aria-hidden="true">FOLLOW</span>
+        <div class="social-stage reveal" data-parallax-area aria-label="Podgląd profili Monna Design na Instagramie i Facebooku">
+          <span class="social-stage__word" aria-hidden="true">SOCIAL</span>
+          <div class="social-stage__glow social-stage__glow--one" aria-hidden="true"></div>
+          <div class="social-stage__glow social-stage__glow--two" aria-hidden="true"></div>
 
-          <a class="social-shot social-shot--instagram" data-parallax="8" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">
-            <span class="social-shot__label">Instagram <i>↗</i></span>
-            <img src="social-instagram-desktop.png" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="eager">
+          <a class="social-device social-device--desktop" data-parallax="8" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">
+            <div class="social-device__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="social-device__screen">
+              <img src="social-instagram-desktop.png" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie">
+            </div>
+            <div class="social-device__caption"><strong>Instagram</strong><small>Realizacje, budowy i kulisy pracy</small><i>↗</i></div>
           </a>
 
-          <a class="social-shot social-shot--facebook" data-parallax="-10" href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">
-            <span class="social-shot__label">Facebook <i>↗</i></span>
-            <img src="social-facebook-phone.png" alt="Mobilny profil Monika Serbista Projektowanie Wnętrz na Facebooku" loading="eager">
+          <a class="social-device social-device--phone" data-parallax="-10" href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">
+            <div class="social-device__phone-shell">
+              <span class="social-device__notch" aria-hidden="true"></span>
+              <div class="social-device__screen">
+                <img src="social-facebook-phone.png" alt="Mobilny profil Monika Serbista Projektowanie Wnętrz na Facebooku">
+              </div>
+            </div>
+            <div class="social-device__caption"><strong>Facebook</strong><small>Aktualności, kontakt i opinie</small><i>↗</i></div>
           </a>
 
-          <div class="social-collage__note">
+          <div class="social-stage__note">
             <span>@monika.serbista.projektowanie</span>
-            <p>Realizacje, budowy i proces projektowy — bez katalogowego dystansu.</p>
+            <p>Spójna obecność w social mediach — od inspiracji i realizacji po aktualności z budowy.</p>
           </div>
         </div>
 
@@ -368,6 +382,6 @@
     <button class="gallery__nav gallery__nav--next" type="button" aria-label="Następne zdjęcie">→</button>
   </dialog>
 
-  <script src="script.js?v=6.3.0" defer></script>
+  <script src="script.js?v=6.4.0" defer></script>
 </body>
 </html>
