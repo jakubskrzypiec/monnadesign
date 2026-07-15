@@ -249,6 +249,29 @@
     if (Math.abs(delta) > 55) moveGallery(delta > 0 ? -1 : 1);
   }, { passive: true });
 
+
+  const parallaxAreas = document.querySelectorAll('[data-parallax-area]');
+  if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
+    parallaxAreas.forEach((area) => {
+      let raf = null;
+      const update = (event) => {
+        const rect = area.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
+        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          area.style.setProperty('--mx', `${x}px`);
+          area.style.setProperty('--my', `${y}px`);
+        });
+      };
+      area.addEventListener('pointermove', update);
+      area.addEventListener('pointerleave', () => {
+        area.style.setProperty('--mx', '0px');
+        area.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
   document.querySelectorAll('[data-year]').forEach((node) => {
     node.textContent = new Date().getFullYear();
   });

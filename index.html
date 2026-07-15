@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6.1.0">
+  <link rel="stylesheet" href="style.css?v=6.2.0">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -89,21 +89,18 @@
           <a class="line-link reveal" href="#o-mnie">Poznaj studio <span>↘</span></a>
         </div>
 
-        <aside class="studio-note__aside reveal" aria-label="Podejście do projektowania">
-          <span class="studio-note__eyebrow">Podejście</span>
-          <article>
-            <strong>Funkcja</strong>
-            <p>Układ, który wspiera codzienne rytuały i naprawdę ułatwia życie.</p>
-          </article>
-          <article>
-            <strong>Proporcja</strong>
-            <p>Świadoma równowaga światła, skali, materiałów i nastroju wnętrza.</p>
-          </article>
-          <article>
-            <strong>Realność</strong>
-            <p>Rozwiązania możliwe do wykonania, dopracowane również od strony praktycznej.</p>
-          </article>
-        </aside>
+        <div class="studio-note__visual" data-parallax-area aria-label="Materiały, światło i detal w projektowaniu wnętrz">
+          <figure class="studio-visual studio-visual--main media-reveal reveal" data-parallax="10">
+            <img src="detail-02.jpg" alt="Ciemna ściana z pionowym rytmem, miękka forma fotela i naturalne światło" loading="lazy">
+          </figure>
+          <figure class="studio-visual studio-visual--detail media-reveal reveal" data-parallax="-7">
+            <img src="separator-01.jpg" alt="Kamienne formy i lampa w świetle dziennym" loading="lazy">
+          </figure>
+          <div class="studio-visual__caption reveal">
+            <span>Światło</span><span>Materiał</span><span>Detal</span>
+          </div>
+          <div class="studio-visual__index" aria-hidden="true">01</div>
+        </div>
       </div>
     </section>
 
@@ -285,21 +282,28 @@
         <h2 class="reveal">Obserwuj Monna Design.</h2>
         <p class="reveal">Aktualne realizacje, materiały z budowy i kulisy pracy pojawiają się regularnie na Instagramie i Facebooku.</p>
 
-        <div class="devices reveal" aria-label="Podgląd profili Monna Design na Instagramie i Facebooku">
-          <div class="device device--laptop">
-            <span class="device__camera"></span>
-            <div class="device__screen"><img src="social-instagram-desktop.png" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="lazy"></div>
-            <span class="device__base"></span>
-          </div>
-          <div class="device device--phone">
-            <span class="device__speaker"></span>
-            <div class="device__screen"><img src="social-facebook-phone.png" alt="Mobilny podgląd profilu Monna Design na Facebooku" loading="lazy"></div>
+        <div class="social-collage reveal" data-parallax-area aria-label="Podgląd profili Monna Design na Instagramie i Facebooku">
+          <span class="social-collage__word" aria-hidden="true">FOLLOW</span>
+
+          <a class="social-shot social-shot--instagram media-reveal" data-parallax="8" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">
+            <span class="social-shot__label">Instagram <i>↗</i></span>
+            <img src="social-instagram-desktop.png" alt="Profil Monika Serbista Projektowanie Wnętrz na Instagramie" loading="eager">
+          </a>
+
+          <a class="social-shot social-shot--facebook media-reveal" data-parallax="-10" href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">
+            <span class="social-shot__label">Facebook <i>↗</i></span>
+            <img src="social-facebook-phone.png" alt="Mobilny profil Monika Serbista Projektowanie Wnętrz na Facebooku" loading="eager">
+          </a>
+
+          <div class="social-collage__note">
+            <span>@monika.serbista.projektowanie</span>
+            <p>Realizacje, budowy i proces projektowy — bez katalogowego dystansu.</p>
           </div>
         </div>
 
         <div class="social-showcase__links reveal">
-          <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Instagram <span>↗</span></a>
-          <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Facebook <span>↗</span></a>
+          <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Zobacz Instagram <span>↗</span></a>
+          <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Otwórz Facebook <span>↗</span></a>
         </div>
       </div>
 
@@ -356,6 +360,6 @@
     <button class="gallery__nav gallery__nav--next" type="button" aria-label="Następne zdjęcie">→</button>
   </dialog>
 
-  <script src="script.js?v=6.1.0" defer></script>
+  <script src="script.js?v=6.2.0" defer></script>
 </body>
 </html>
