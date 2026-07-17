@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050505">
   <title>Realizacje projektów wnętrz | Monika Serbista</title>
-  <meta name="description" content="Wybrane realizacje projektów wnętrz: salony, kuchnie, łazienki, sypialnie, domy i przestrzenie komercyjne w spokojnej, dopracowanej estetyce.">
+  <meta name="description" content="Wybrane realizacje projektów wnętrz w równej, dopracowanej siatce: salony, kuchnie, łazienki, sypialnie, domy i przestrzenie komercyjne.">
   <link rel="canonical" href="https://jakubskrzypiec.github.io/monnadesign/realizacje.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:title" content="Realizacje projektów wnętrz | Monika Serbista">
-  <meta property="og:description" content="Równa, spokojna galeria realizacji — bez chaosu i ciężkich efektów.">
+  <meta property="og:description" content="Wybrane realizacje projektów wnętrz w równej, dopracowanej siatce: salony, kuchnie, łazienki, sypialnie, domy i przestrzenie komercyjne.">
   <meta property="og:image" content="https://jakubskrzypiec.github.io/monnadesign/editorial-motion-01.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8.2.0">
-  <link rel="stylesheet" href="pages.css?v=8.2.0">
+  <link rel="stylesheet" href="style.css?v=10.0.0">
+  <link rel="stylesheet" href="pages.css?v=10.0.0">
 </head>
-<body class="subpage page-realizations" data-page="realizacje">
+<body class="subpage page-realizacje" data-page="realizacje">
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <header class="site-header site-header--solid" data-header>
     <a class="brand" href="index.html" aria-label="Monika Serbista Projektowanie Wnętrz — strona główna">
@@ -46,130 +46,149 @@
     </div>
   </div>
   <main id="main">
-    <section class="page-hero page-hero--portfolio page-hero--quiet">
-      <img src="editorial-motion-01.webp" alt="Minimalistyczne wnętrze w ciepłych szarościach i rozmyta sylwetka" fetchpriority="high">
+
+    <section class="page-hero page-hero--portfolio">
+      <img src="editorial-motion-01.webp" alt="" fetchpriority="high">
       <div class="page-hero__shade"></div>
       <div class="page-hero__content reveal">
         <div class="breadcrumbs"><a href="index.html">Start</a><span>—</span><span>Realizacje</span></div>
         <p class="page-kicker">Portfolio</p>
-        <h1>Równe kadry. Spokojny rytm. Detal, który trzyma całość.</h1>
-        <p class="page-hero__lead">Galeria została ułożona jak katalog pracowni: trzy kolumny, czyste proporcje i projekty, które można obejrzeć bez rozpraszających efektów.</p>
+        <h1>Katalog pracowni, ale z charakterem.</h1>
+        <p class="page-hero__lead">Projekty są równo ułożone w trzech kolumnach, ale każdy kadr ma własną warstwę, numer i spokojny magazynowy rytm. Bez tanich ramek i bez chaosu.</p>
       </div>
       <div class="hero-count"><span>Realizacje</span><strong>19</strong></div>
+      <a class="page-hero__scroll" href="#po-hero"><span>Przejdź niżej</span><i></i></a>
     </section>
 
-    <section class="projects-section surface-concrete" id="projekty">
-      <div class="projects-intro reveal">
-        <p class="page-kicker dark">Wybrane projekty</p>
-        <h2>Każda karta ma ten sam ciężar, żeby to wnętrza mówiły pierwsze.</h2>
-        <p>Możesz filtrować typ realizacji albo przejść przez całą galerię po kolei. Kliknięcie otwiera zdjęcie w powiększeniu.</p>
+    <section class="portfolio-archive surface-concrete" id="po-hero">
+      <div class="portfolio-archive__intro reveal">
+        <p class="page-kicker dark">Układ archiwum</p>
+        <h2>Trzy kolumny, równe projekty, mocniejsza oprawa.</h2>
+        <p>To nadal jest czytelne portfolio, ale karta nie jest zwykłym prostokątem. Każda realizacja ma numer, cięty narożnik, linię metadanych i spokojny hover.</p>
       </div>
       <div class="project-filters reveal" aria-label="Filtrowanie realizacji">
-        <button class="is-active" type="button" data-filter="all">Wszystkie</button>
+        <button type="button" class="is-active" data-filter="all">Wszystkie</button>
         <button type="button" data-filter="dzienne">Strefy dzienne</button>
         <button type="button" data-filter="kuchnie">Kuchnie</button>
         <button type="button" data-filter="lazienki">Łazienki</button>
         <button type="button" data-filter="sypialnie">Sypialnie</button>
+        <button type="button" data-filter="domy">Domy</button>
         <button type="button" data-filter="komercyjne">Komercyjne</button>
       </div>
-      <div class="projects-grid">
-        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-strefa-dzienna-01.webp" data-title="Strefa dzienna z kuchnią — Płock, 56 m²">
-          <figure><img src="realizacja-strefa-dzienna-01.webp" alt="Strefa dzienna z kuchnią" loading="lazy"><figcaption><small>Płock · 56 m²</small><strong>Strefa dzienna z kuchnią</strong></figcaption></figure>
-          <span class="project-tile__type">Układ dzienny</span>
+      <div class="projects-grid projects-grid--wow">
+        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-strefa-dzienna-01.webp" data-title="Strefa dzienna — Płock · 56 m²">
+          <span class="project-tile__index">01</span>
+          <figure><span class="project-tile__image"><img src="realizacja-strefa-dzienna-01.webp" alt="Strefa dzienna" loading="lazy"></span><figcaption><small>Płock · 56 m²</small><strong>Strefa dzienna</strong></figcaption></figure>
+          <span class="project-tile__type">strefa dzienna</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-jasny-01.webp" data-title="Jasny salon z jadalnią — Warszawa, 78 m²">
-          <figure><img src="realizacja-salon-jasny-01.webp" alt="Jasny salon z jadalnią" loading="lazy"><figcaption><small>Warszawa · 78 m²</small><strong>Jasny salon z jadalnią</strong></figcaption></figure>
-          <span class="project-tile__type">Apartament</span>
+        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-jasny-01.webp" data-title="Jasny salon — Warszawa · 42 m²">
+          <span class="project-tile__index">02</span>
+          <figure><span class="project-tile__image"><img src="realizacja-salon-jasny-01.webp" alt="Jasny salon" loading="lazy"></span><figcaption><small>Warszawa · 42 m²</small><strong>Jasny salon</strong></figcaption></figure>
+          <span class="project-tile__type">mieszkanie</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-rtv-01.webp" data-title="Salon z zabudową RTV — Mikołów, 42 m²">
-          <figure><img src="realizacja-salon-rtv-01.webp" alt="Salon z zabudową RTV" loading="lazy"><figcaption><small>Mikołów · 42 m²</small><strong>Salon z zabudową RTV</strong></figcaption></figure>
-          <span class="project-tile__type">Salon</span>
+        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-rtv-01.webp" data-title="Ściana RTV — Poznań · 36 m²">
+          <span class="project-tile__index">03</span>
+          <figure><span class="project-tile__image"><img src="realizacja-salon-rtv-01.webp" alt="Ściana RTV" loading="lazy"></span><figcaption><small>Poznań · 36 m²</small><strong>Ściana RTV</strong></figcaption></figure>
+          <span class="project-tile__type">salon</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-drewno-01.webp" data-title="Salon w ciepłym drewnie — Katowice, 61 m²">
-          <figure><img src="realizacja-salon-drewno-01.webp" alt="Salon w ciepłym drewnie" loading="lazy"><figcaption><small>Katowice · 61 m²</small><strong>Salon w ciepłym drewnie</strong></figcaption></figure>
-          <span class="project-tile__type">Dom</span>
+        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-drewno-01.webp" data-title="Salon w drewnie — Gdańsk · 48 m²">
+          <span class="project-tile__index">04</span>
+          <figure><span class="project-tile__image"><img src="realizacja-salon-drewno-01.webp" alt="Salon w drewnie" loading="lazy"></span><figcaption><small>Gdańsk · 48 m²</small><strong>Salon w drewnie</strong></figcaption></figure>
+          <span class="project-tile__type">dom</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-zielen-01.webp" data-title="Salon z miękkim światłem — Olsztyn, 38 m²">
-          <figure><img src="realizacja-salon-zielen-01.webp" alt="Salon z miękkim światłem" loading="lazy"><figcaption><small>Olsztyn · 38 m²</small><strong>Salon z miękkim światłem</strong></figcaption></figure>
-          <span class="project-tile__type">Mieszkanie</span>
+        <button class="project-tile reveal" type="button" data-category="dzienne" data-lightbox="realizacja-salon-zielen-01.webp" data-title="Miękkie światło — Olsztyn · 38 m²">
+          <span class="project-tile__index">05</span>
+          <figure><span class="project-tile__image"><img src="realizacja-salon-zielen-01.webp" alt="Miękkie światło" loading="lazy"></span><figcaption><small>Olsztyn · 38 m²</small><strong>Miękkie światło</strong></figcaption></figure>
+          <span class="project-tile__type">mieszkanie</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="domy" data-lightbox="realizacja-dom-ogrod-01.webp" data-title="Dom otwarty na ogród — Ciechanów, 142 m²">
-          <figure><img src="realizacja-dom-ogrod-01.webp" alt="Dom otwarty na ogród" loading="lazy"><figcaption><small>Ciechanów · 142 m²</small><strong>Dom otwarty na ogród</strong></figcaption></figure>
-          <span class="project-tile__type">Dom</span>
+        <button class="project-tile reveal" type="button" data-category="domy" data-lightbox="realizacja-dom-ogrod-01.webp" data-title="Dom i ogród — Ciechanów · 142 m²">
+          <span class="project-tile__index">06</span>
+          <figure><span class="project-tile__image"><img src="realizacja-dom-ogrod-01.webp" alt="Dom i ogród" loading="lazy"></span><figcaption><small>Ciechanów · 142 m²</small><strong>Dom i ogród</strong></figcaption></figure>
+          <span class="project-tile__type">dom</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="kuchnie" data-lightbox="realizacja-jadalnia-kuchnia-01.webp" data-title="Jadalnia i kuchnia — Mława, 34 m²">
-          <figure><img src="realizacja-jadalnia-kuchnia-01.webp" alt="Jadalnia i kuchnia" loading="lazy"><figcaption><small>Mława · 34 m²</small><strong>Jadalnia i kuchnia</strong></figcaption></figure>
-          <span class="project-tile__type">Kuchnia</span>
+        <button class="project-tile reveal" type="button" data-category="kuchnie" data-lightbox="realizacja-jadalnia-kuchnia-01.webp" data-title="Jadalnia z kuchnią — Mława · 34 m²">
+          <span class="project-tile__index">07</span>
+          <figure><span class="project-tile__image"><img src="realizacja-jadalnia-kuchnia-01.webp" alt="Jadalnia z kuchnią" loading="lazy"></span><figcaption><small>Mława · 34 m²</small><strong>Jadalnia z kuchnią</strong></figcaption></figure>
+          <span class="project-tile__type">kuchnia</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="kuchnie" data-lightbox="realizacja-kuchnia-oliwkowa-01.webp" data-title="Kuchnia w oliwkowej tonacji — Żory, 28 m²">
-          <figure><img src="realizacja-kuchnia-oliwkowa-01.webp" alt="Kuchnia w oliwkowej tonacji" loading="lazy"><figcaption><small>Żory · 28 m²</small><strong>Kuchnia w oliwkowej tonacji</strong></figcaption></figure>
-          <span class="project-tile__type">Kuchnia</span>
+        <button class="project-tile reveal" type="button" data-category="kuchnie" data-lightbox="realizacja-kuchnia-oliwkowa-01.webp" data-title="Oliwkowa kuchnia — Żory · 28 m²">
+          <span class="project-tile__index">08</span>
+          <figure><span class="project-tile__image"><img src="realizacja-kuchnia-oliwkowa-01.webp" alt="Oliwkowa kuchnia" loading="lazy"></span><figcaption><small>Żory · 28 m²</small><strong>Oliwkowa kuchnia</strong></figcaption></figure>
+          <span class="project-tile__type">kuchnia</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-lazienka-czarna-01.webp" data-title="Łazienka z czarną wanną — Legionowo, 12 m²">
-          <figure><img src="realizacja-lazienka-czarna-01.webp" alt="Łazienka z czarną wanną" loading="lazy"><figcaption><small>Legionowo · 12 m²</small><strong>Łazienka z czarną wanną</strong></figcaption></figure>
-          <span class="project-tile__type">Łazienka</span>
+        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-lazienka-czarna-01.webp" data-title="Czarna wanna — Legionowo · 12 m²">
+          <span class="project-tile__index">09</span>
+          <figure><span class="project-tile__image"><img src="realizacja-lazienka-czarna-01.webp" alt="Czarna wanna" loading="lazy"></span><figcaption><small>Legionowo · 12 m²</small><strong>Czarna wanna</strong></figcaption></figure>
+          <span class="project-tile__type">łazienka</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-lazienka-pudrowa-01.webp" data-title="Łazienka z pudrowym akcentem — Kraków, 8 m²">
-          <figure><img src="realizacja-lazienka-pudrowa-01.webp" alt="Łazienka z pudrowym akcentem" loading="lazy"><figcaption><small>Kraków · 8 m²</small><strong>Łazienka z pudrowym akcentem</strong></figcaption></figure>
-          <span class="project-tile__type">Łazienka</span>
+        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-lazienka-pudrowa-01.webp" data-title="Pudrowy akcent — Kraków · 8 m²">
+          <span class="project-tile__index">10</span>
+          <figure><span class="project-tile__image"><img src="realizacja-lazienka-pudrowa-01.webp" alt="Pudrowy akcent" loading="lazy"></span><figcaption><small>Kraków · 8 m²</small><strong>Pudrowy akcent</strong></figcaption></figure>
+          <span class="project-tile__type">łazienka</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-lazienka-zielen-01.webp" data-title="Łazienka z zieloną ceramiką — Gliwice, 7 m²">
-          <figure><img src="realizacja-lazienka-zielen-01.webp" alt="Łazienka z zieloną ceramiką" loading="lazy"><figcaption><small>Gliwice · 7 m²</small><strong>Łazienka z zieloną ceramiką</strong></figcaption></figure>
-          <span class="project-tile__type">Łazienka</span>
+        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-lazienka-zielen-01.webp" data-title="Zielona ceramika — Gliwice · 7 m²">
+          <span class="project-tile__index">11</span>
+          <figure><span class="project-tile__image"><img src="realizacja-lazienka-zielen-01.webp" alt="Zielona ceramika" loading="lazy"></span><figcaption><small>Gliwice · 7 m²</small><strong>Zielona ceramika</strong></figcaption></figure>
+          <span class="project-tile__type">łazienka</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-poddasze-lazienka-01.webp" data-title="Łazienka pod skosem — Bielsko-Biała, 10 m²">
-          <figure><img src="realizacja-poddasze-lazienka-01.webp" alt="Łazienka pod skosem" loading="lazy"><figcaption><small>Bielsko-Biała · 10 m²</small><strong>Łazienka pod skosem</strong></figcaption></figure>
-          <span class="project-tile__type">Poddasze</span>
+        <button class="project-tile reveal" type="button" data-category="lazienki" data-lightbox="realizacja-poddasze-lazienka-01.webp" data-title="Łazienka pod skosem — Bielsko-Biała · 10 m²">
+          <span class="project-tile__index">12</span>
+          <figure><span class="project-tile__image"><img src="realizacja-poddasze-lazienka-01.webp" alt="Łazienka pod skosem" loading="lazy"></span><figcaption><small>Bielsko-Biała · 10 m²</small><strong>Łazienka pod skosem</strong></figcaption></figure>
+          <span class="project-tile__type">poddasze</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-poddasze-sypialnia-01.webp" data-title="Sypialnia na poddaszu — Tychy, 19 m²">
-          <figure><img src="realizacja-poddasze-sypialnia-01.webp" alt="Sypialnia na poddaszu" loading="lazy"><figcaption><small>Tychy · 19 m²</small><strong>Sypialnia na poddaszu</strong></figcaption></figure>
-          <span class="project-tile__type">Sypialnia</span>
+        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-poddasze-sypialnia-01.webp" data-title="Poddasze nocą — Tychy · 19 m²">
+          <span class="project-tile__index">13</span>
+          <figure><span class="project-tile__image"><img src="realizacja-poddasze-sypialnia-01.webp" alt="Poddasze nocą" loading="lazy"></span><figcaption><small>Tychy · 19 m²</small><strong>Poddasze nocą</strong></figcaption></figure>
+          <span class="project-tile__type">sypialnia</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-sypialnia-ciemna-01.webp" data-title="Ciemna sypialnia hotelowa — Wrocław, 21 m²">
-          <figure><img src="realizacja-sypialnia-ciemna-01.webp" alt="Ciemna sypialnia hotelowa" loading="lazy"><figcaption><small>Wrocław · 21 m²</small><strong>Ciemna sypialnia hotelowa</strong></figcaption></figure>
-          <span class="project-tile__type">Sypialnia</span>
+        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-sypialnia-ciemna-01.webp" data-title="Hotelowa ciemność — Wrocław · 21 m²">
+          <span class="project-tile__index">14</span>
+          <figure><span class="project-tile__image"><img src="realizacja-sypialnia-ciemna-01.webp" alt="Hotelowa ciemność" loading="lazy"></span><figcaption><small>Wrocław · 21 m²</small><strong>Hotelowa ciemność</strong></figcaption></figure>
+          <span class="project-tile__type">sypialnia</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-sypialnia-ciepla-01.webp" data-title="Sypialnia w ciepłym świetle — Rybnik, 17 m²">
-          <figure><img src="realizacja-sypialnia-ciepla-01.webp" alt="Sypialnia w ciepłym świetle" loading="lazy"><figcaption><small>Rybnik · 17 m²</small><strong>Sypialnia w ciepłym świetle</strong></figcaption></figure>
-          <span class="project-tile__type">Sypialnia</span>
+        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-sypialnia-ciepla-01.webp" data-title="Ciepła sypialnia — Rybnik · 17 m²">
+          <span class="project-tile__index">15</span>
+          <figure><span class="project-tile__image"><img src="realizacja-sypialnia-ciepla-01.webp" alt="Ciepła sypialnia" loading="lazy"></span><figcaption><small>Rybnik · 17 m²</small><strong>Ciepła sypialnia</strong></figcaption></figure>
+          <span class="project-tile__type">sypialnia</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-poddasze-mural-01.webp" data-title="Pokój z muralem — Opole, 16 m²">
-          <figure><img src="realizacja-poddasze-mural-01.webp" alt="Pokój z muralem" loading="lazy"><figcaption><small>Opole · 16 m²</small><strong>Pokój z muralem</strong></figcaption></figure>
-          <span class="project-tile__type">Pokój</span>
+        <button class="project-tile reveal" type="button" data-category="sypialnie" data-lightbox="realizacja-poddasze-mural-01.webp" data-title="Pokój z muralem — Opole · 16 m²">
+          <span class="project-tile__index">16</span>
+          <figure><span class="project-tile__image"><img src="realizacja-poddasze-mural-01.webp" alt="Pokój z muralem" loading="lazy"></span><figcaption><small>Opole · 16 m²</small><strong>Pokój z muralem</strong></figcaption></figure>
+          <span class="project-tile__type">pokój</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="komercyjne" data-lightbox="realizacja-gabinet-stomatologiczny-01.webp" data-title="Gabinet stomatologiczny — Katowice, 44 m²">
-          <figure><img src="realizacja-gabinet-stomatologiczny-01.webp" alt="Gabinet stomatologiczny" loading="lazy"><figcaption><small>Katowice · 44 m²</small><strong>Gabinet stomatologiczny</strong></figcaption></figure>
-          <span class="project-tile__type">Gabinet</span>
+        <button class="project-tile reveal" type="button" data-category="komercyjne" data-lightbox="realizacja-gabinet-stomatologiczny-01.webp" data-title="Gabinet — Katowice · 44 m²">
+          <span class="project-tile__index">17</span>
+          <figure><span class="project-tile__image"><img src="realizacja-gabinet-stomatologiczny-01.webp" alt="Gabinet" loading="lazy"></span><figcaption><small>Katowice · 44 m²</small><strong>Gabinet</strong></figcaption></figure>
+          <span class="project-tile__type">komercja</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="komercyjne" data-lightbox="realizacja-poczekalnia-01.webp" data-title="Poczekalnia z marmurem — Chorzów, 35 m²">
-          <figure><img src="realizacja-poczekalnia-01.webp" alt="Poczekalnia z marmurem" loading="lazy"><figcaption><small>Chorzów · 35 m²</small><strong>Poczekalnia z marmurem</strong></figcaption></figure>
-          <span class="project-tile__type">Komercja</span>
+        <button class="project-tile reveal" type="button" data-category="komercyjne" data-lightbox="realizacja-poczekalnia-01.webp" data-title="Poczekalnia — Chorzów · 35 m²">
+          <span class="project-tile__index">18</span>
+          <figure><span class="project-tile__image"><img src="realizacja-poczekalnia-01.webp" alt="Poczekalnia" loading="lazy"></span><figcaption><small>Chorzów · 35 m²</small><strong>Poczekalnia</strong></figcaption></figure>
+          <span class="project-tile__type">komercja</span>
         </button>
-        <button class="project-tile reveal" type="button" data-category="komercyjne" data-lightbox="realizacja-poczekalnia-02.webp" data-title="Strefa recepcyjna — Bytom, 31 m²">
-          <figure><img src="realizacja-poczekalnia-02.webp" alt="Strefa recepcyjna" loading="lazy"><figcaption><small>Bytom · 31 m²</small><strong>Strefa recepcyjna</strong></figcaption></figure>
-          <span class="project-tile__type">Komercja</span>
+        <button class="project-tile reveal" type="button" data-category="komercyjne" data-lightbox="realizacja-poczekalnia-02.webp" data-title="Strefa recepcyjna — Bytom · 31 m²">
+          <span class="project-tile__index">19</span>
+          <figure><span class="project-tile__image"><img src="realizacja-poczekalnia-02.webp" alt="Strefa recepcyjna" loading="lazy"></span><figcaption><small>Bytom · 31 m²</small><strong>Strefa recepcyjna</strong></figcaption></figure>
+          <span class="project-tile__type">komercja</span>
         </button>
       </div>
     </section>
 
-    <section class="portfolio-note">
-      <div class="portfolio-note__image reveal"><img src="editorial-detail-01.webp" alt="Minimalistyczny detal materiałów w szarościach" loading="lazy"></div>
-      <div class="portfolio-note__copy reveal">
-        <p class="page-kicker">Detal</p>
-        <h2>Realizacja ma wyglądać dobrze nie tylko w kadrze, ale też w codziennym świetle.</h2>
-        <p>Dlatego w projektach ważne są proporcje, materiały, przechowywanie i rozwiązania, które wykonawca może realnie przełożyć na gotowe wnętrze.</p>
-        <a class="editorial-link" href="oferta.html">Zobacz zakres współpracy <span>↗</span></a>
+    <section class="portfolio-manifest">
+      <div class="portfolio-manifest__line reveal"><span>Detal</span><span>Funkcja</span><span>Światło</span><span>Rytm</span></div>
+      <div class="portfolio-manifest__image reveal"><img src="editorial-detail-01.webp" alt="Cichy detal materiałowy w szarościach" loading="lazy"></div>
+      <div class="portfolio-manifest__copy reveal">
+        <p class="page-kicker">Dlaczego tak</p>
+        <h2>Realizacja ma oddychać nawet wtedy, gdy zdjęcie jest tylko fragmentem większej historii.</h2>
+        <p>Dlatego obok dużych kadrów zostają metraż, miejscowość i typ przestrzeni — dyskretnie, bez krzyczenia po zdjęciu.</p>
+        <a class="editorial-link" href="oferta.html">Zobacz ofertę <span>↗</span></a>
       </div>
     </section>
 
-    <section class="md-cta md-cta--image">
-      <img src="editorial-detail-03.webp" alt="Cichy materiałowy przerywnik w czerni, bieli i szarości" loading="lazy">
-      <div class="md-cta__shade"></div>
-      <div class="md-cta__content reveal">
-        <p class="page-kicker">Nowy projekt</p>
-        <h2>Chcesz podobny poziom spójności u siebie?</h2>
-        <a class="line-link line-link--light" href="kontakt.html">Napisz do pracowni <span>↗</span></a>
-      </div>
+    <section class="quote-break quote-break--portfolio">
+      <img src="editorial-detail-03.webp" alt="Monochromatyczny przerywnik materiałowy" loading="lazy">
+      <div class="quote-break__shade"></div>
+      <div class="quote-break__content reveal"><p>Nie chodzi o efekt. Chodzi o wnętrze, które nie nudzi się po pierwszym miesiącu.</p><a class="line-link line-link--light" href="kontakt.html">Zapytaj o projekt <span>↗</span></a></div>
     </section>
   </main>
   <dialog class="page-lightbox" aria-label="Podgląd realizacji">
@@ -190,6 +209,6 @@
       <a href="https://kupgotowyprojekt.pl/polityka-prywatnosci/" target="_blank" rel="noopener">Polityka prywatności</a>
     </div>
   </footer>
-  <script src="pages.js?v=8.2.0" defer></script>
+  <script src="pages.js?v=10.0.0" defer></script>
 </body>
 </html>
