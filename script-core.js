@@ -353,7 +353,7 @@
     node.textContent = new Date().getFullYear();
   });
 
-  // V29 studio-only cinematic entry — index / Studio only
+  // V31 studio-only entry — clean fade over hero, no black bars
   const initMajorEntryV25 = () => {
     const isStudioPage =
       !document.body.classList.contains('subpage') &&
@@ -371,12 +371,11 @@
 
     const source = heroImage?.currentSrc || heroImage?.src || 'hero-01.jpg';
     const gate = document.createElement('div');
-    gate.className = 'premium-entry-v25 premium-entry-v29';
+    gate.className = 'premium-entry-v25 premium-entry-v31';
     gate.style.setProperty('--entry-bg', `url("${source}")`);
     gate.innerHTML = `
       <div class="premium-entry-v25__bg" aria-hidden="true"></div>
-      <div class="premium-entry-v25__panel premium-entry-v25__panel--top" aria-hidden="true"></div>
-      <div class="premium-entry-v25__panel premium-entry-v25__panel--bottom" aria-hidden="true"></div>
+      <div class="premium-entry-v31__veil" aria-hidden="true"></div>
       <div class="premium-entry-v25__content">
         <img src="monogram-white.png" alt="" class="premium-entry-v25__mark">
         <span>MONIKA SERBISTA</span>
@@ -386,14 +385,13 @@
     document.body.classList.add('entry-v25-active');
     document.body.prepend(gate);
     requestAnimationFrame(() => gate.classList.add('is-ready'));
-    window.setTimeout(() => gate.classList.add('is-split'), 760);
-    window.setTimeout(() => gate.classList.add('is-leaving'), 1240);
+    window.setTimeout(() => gate.classList.add('is-leaving'), 1180);
     window.setTimeout(() => {
       gate.remove();
       document.body.classList.remove('entry-v25-active');
       document.body.classList.add('entry-v25-finished');
       window.dispatchEvent(new CustomEvent('monna:entry-complete'));
-    }, 1900);
+    }, 1840);
   };
   initMajorEntryV25();
 

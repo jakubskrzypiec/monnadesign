@@ -106,7 +106,7 @@
     });
   });
   document.querySelectorAll('[data-year]').forEach((node) => { node.textContent = new Date().getFullYear(); });
-  // V29: intro is disabled on all subpages.
+  // V31: no entry animation on subpages.
   document.body.classList.add('entry-v25-finished');
 const initBriefPopup = () => {
     if (window.localStorage?.getItem('monnaBriefPopupClosed') === '1') return;
