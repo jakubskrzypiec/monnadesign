@@ -106,52 +106,9 @@
     });
   });
   document.querySelectorAll('[data-year]').forEach((node) => { node.textContent = new Date().getFullYear(); });
-
-  // V25 major-grade cinematic entry — only once per session, clean transition from hero image
-  const initMajorEntryV25 = () => {
-    if (reducedMotion) {
-      document.body.classList.add('entry-v25-finished');
-      return;
-    }
-    // V26: intro runs on every page load / refresh. No sessionStorage lock.
-
-    const heroImage =
-      document.querySelector('.hero__frame.is-active') ||
-      document.querySelector('.sub-hero-v16__image img') ||
-      document.querySelector('.page-hero > img') ||
-      document.querySelector('.page-hero img') ||
-      document.querySelector('main img');
-
-    const source = heroImage?.currentSrc || heroImage?.src || 'hero-01.jpg';
-    const gate = document.createElement('div');
-    gate.className = 'premium-entry-v25';
-    gate.style.setProperty('--entry-bg', `url("${source}")`);
-    gate.innerHTML = `
-      <div class="premium-entry-v25__bg" aria-hidden="true"></div>
-      <div class="premium-entry-v25__grid" aria-hidden="true"></div>
-      <div class="premium-entry-v25__panel premium-entry-v25__panel--top" aria-hidden="true"></div>
-      <div class="premium-entry-v25__panel premium-entry-v25__panel--bottom" aria-hidden="true"></div>
-      <div class="premium-entry-v25__content">
-        <img src="monogram-white.png" alt="" class="premium-entry-v25__mark">
-        <span>MONIKA SERBISTA</span>
-        <strong>Projektowanie wnętrz</strong>
-        <i></i>
-      </div>`;
-    document.body.classList.add('entry-v25-active');
-    document.body.prepend(gate);
-    requestAnimationFrame(() => gate.classList.add('is-ready'));
-    window.setTimeout(() => gate.classList.add('is-split'), 980);
-    window.setTimeout(() => gate.classList.add('is-leaving'), 1480);
-    window.setTimeout(() => {
-      gate.remove();
-      document.body.classList.remove('entry-v25-active');
-      document.body.classList.add('entry-v25-finished');
-      window.dispatchEvent(new CustomEvent('monna:entry-complete'));
-    }, 2300);
-  };
-  initMajorEntryV25();
-
-  const initBriefPopup = () => {
+  // V29: intro is disabled on all subpages.
+  document.body.classList.add('entry-v25-finished');
+const initBriefPopup = () => {
     if (window.localStorage?.getItem('monnaBriefPopupClosed') === '1') return;
     const popup = document.createElement('aside');
     popup.className = 'premium-brief-popup';

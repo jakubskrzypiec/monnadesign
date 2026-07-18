@@ -353,28 +353,28 @@
     node.textContent = new Date().getFullYear();
   });
 
-  // V25 major-grade cinematic entry — only once per session, clean transition from hero image
+  // V29 studio-only cinematic entry — index / Studio only
   const initMajorEntryV25 = () => {
-    if (reducedMotion) {
+    const isStudioPage =
+      !document.body.classList.contains('subpage') &&
+      (location.pathname.endsWith('/') || location.pathname.endsWith('/index.html') || document.querySelector('.hero'));
+
+    if (reducedMotion || !isStudioPage) {
       document.body.classList.add('entry-v25-finished');
       return;
     }
-    // V26: intro runs on every page load / refresh. No sessionStorage lock.
 
     const heroImage =
       document.querySelector('.hero__frame.is-active') ||
-      document.querySelector('.sub-hero-v16__image img') ||
-      document.querySelector('.page-hero > img') ||
-      document.querySelector('.page-hero img') ||
+      document.querySelector('.hero__frame img') ||
       document.querySelector('main img');
 
     const source = heroImage?.currentSrc || heroImage?.src || 'hero-01.jpg';
     const gate = document.createElement('div');
-    gate.className = 'premium-entry-v25';
+    gate.className = 'premium-entry-v25 premium-entry-v29';
     gate.style.setProperty('--entry-bg', `url("${source}")`);
     gate.innerHTML = `
       <div class="premium-entry-v25__bg" aria-hidden="true"></div>
-      <div class="premium-entry-v25__grid" aria-hidden="true"></div>
       <div class="premium-entry-v25__panel premium-entry-v25__panel--top" aria-hidden="true"></div>
       <div class="premium-entry-v25__panel premium-entry-v25__panel--bottom" aria-hidden="true"></div>
       <div class="premium-entry-v25__content">
@@ -386,14 +386,14 @@
     document.body.classList.add('entry-v25-active');
     document.body.prepend(gate);
     requestAnimationFrame(() => gate.classList.add('is-ready'));
-    window.setTimeout(() => gate.classList.add('is-split'), 980);
-    window.setTimeout(() => gate.classList.add('is-leaving'), 1480);
+    window.setTimeout(() => gate.classList.add('is-split'), 760);
+    window.setTimeout(() => gate.classList.add('is-leaving'), 1240);
     window.setTimeout(() => {
       gate.remove();
       document.body.classList.remove('entry-v25-active');
       document.body.classList.add('entry-v25-finished');
       window.dispatchEvent(new CustomEvent('monna:entry-complete'));
-    }, 2300);
+    }, 1900);
   };
   initMajorEntryV25();
 
