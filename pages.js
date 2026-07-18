@@ -107,16 +107,34 @@
   });
   document.querySelectorAll('[data-year]').forEach((node) => { node.textContent = new Date().getFullYear(); });
 
-  // V23 premium entry overlay and brief popup
+  // V24 cinematic entry overlay — only once per session, based on hero image
   const initPremiumEntry = () => {
-    if (reducedMotion || document.body.classList.contains('premium-entry-done')) return;
-    document.body.classList.add('premium-entry-done');
+    if (reducedMotion) return;
+    try {
+      if (window.sessionStorage?.getItem('monnaEntrySeen') === '1') return;
+      window.sessionStorage?.setItem('monnaEntrySeen', '1');
+    } catch (error) {}
+
+    const heroImage =
+      document.querySelector('.hero__frame.is-active') ||
+      document.querySelector('.sub-hero-v16__image img') ||
+      document.querySelector('.page-hero > img') ||
+      document.querySelector('.page-hero img');
+
+    const source = heroImage?.currentSrc || heroImage?.src || 'hero-01.jpg';
     const gate = document.createElement('div');
-    gate.className = 'premium-entry';
-    gate.innerHTML = '<div class="premium-entry__mark">MS</div><div class="premium-entry__line"></div><div class="premium-entry__caption">Projektowanie wnętrz</div>';
+    gate.className = 'premium-entry-v24';
+    gate.style.setProperty('--entry-bg', `url("${source}")`);
+    gate.innerHTML = '<div class="premium-entry-v24__image" aria-hidden="true"></div><div class="premium-entry-v24__veil" aria-hidden="true"></div><div class="premium-entry-v24__content"><img src="monogram-white.png" alt="" class="premium-entry-v24__mark"><span>MONIKA SERBISTA</span><strong>Projektowanie wnętrz</strong><i></i></div>';
+    document.body.classList.add('entry-v24-active');
     document.body.prepend(gate);
-    window.setTimeout(() => gate.classList.add('is-leaving'), 760);
-    window.setTimeout(() => gate.remove(), 1600);
+    window.setTimeout(() => gate.classList.add('is-ready'), 80);
+    window.setTimeout(() => gate.classList.add('is-leaving'), 1180);
+    window.setTimeout(() => {
+      gate.remove();
+      document.body.classList.remove('entry-v24-active');
+      document.body.classList.add('entry-v24-finished');
+    }, 2050);
   };
   initPremiumEntry();
 
@@ -140,6 +158,13 @@
     details.addEventListener('toggle', () => {
       if (!details.open) return;
       document.querySelectorAll('.scope-image-bars-v23 details').forEach((other) => { if (other !== details) other.open = false; });
+    });
+  });
+
+  document.querySelectorAll('.scope-showcase-v24 details').forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      document.querySelectorAll('.scope-showcase-v24 details').forEach((other) => { if (other !== details) other.open = false; });
     });
   });
 
