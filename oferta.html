@@ -17,10 +17,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=32.0.0">
-  <link rel="stylesheet" href="pages.css?v=32.0.0">
+  <link rel="stylesheet" href="style.css?v=33.0.0">
+  <link rel="stylesheet" href="pages.css?v=33.0.0">
+  <link rel="stylesheet" href="fix-v33.css?v=33.0.0">
 </head>
-<body class="subpage page-oferta page-v32" data-page="oferta">
+<body class="subpage page-oferta page-v33" data-page="oferta">
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <header class="site-header site-header--solid" data-header>
     <a class="brand" href="index.html" aria-label="Monika Serbista Projektowanie Wnętrz — strona główna">
@@ -47,37 +48,37 @@
   </div>
 
   <main id="main">
-    <section class="offer-fixed-hero">
+    <section class="v33-subhero v33-subhero--offer">
       <img src="editorial-motion-01.webp" alt="Rozmyta sylwetka w spokojnym wnętrzu" fetchpriority="high">
-      <div class="offer-fixed-hero__shade"></div>
-      <div class="offer-fixed-hero__copy reveal">
-        <div class="breadcrumbs"><a href="index.html">Start</a><span>—</span><span>Oferta</span></div>
+      <div class="v33-subhero__shade"></div>
+      <div class="v33-subhero__content reveal">
+        <nav class="breadcrumbs" aria-label="Okruszki"><a href="index.html">Start</a><span>—</span><span>Oferta</span></nav>
         <p class="page-kicker">Oferta</p>
         <h1>Oferta oparta na funkcji, proporcji i spokojnym prowadzeniu.</h1>
         <p>Zakres dobieramy po rozmowie o wnętrzu: od konsultacji i jednego pomieszczenia po kompleksowy projekt mieszkania lub domu.</p>
       </div>
     </section>
 
-    <section class="offer-fixed-intro surface-concrete">
-      <div class="offer-fixed-intro__copy reveal">
+    <section class="v33-split surface-concrete" id="poczatek">
+      <div class="v33-split__copy reveal">
         <p class="page-kicker dark">Jak pracujemy</p>
         <h2>Najpierw rozpoznanie. Dopiero potem zakres.</h2>
         <p>Nie zaczynamy od gotowej tabeli pakietów. Najpierw sprawdzamy, czy wnętrze potrzebuje pełnego prowadzenia, projektu wybranej strefy, konsultacji czy wsparcia przy decyzjach wykonawczych.</p>
-        <a class="editorial-link editorial-link--dark" href="kontakt.html">Ustal zakres <span>↗</span></a>
+        <a class="v33-link" href="#zakres">Zobacz zakres <span>↗</span></a>
       </div>
-      <figure class="offer-fixed-intro__image reveal">
+      <figure class="v33-split__image reveal">
         <img src="detail-01.jpg" alt="Minimalistyczny detal materiałów, światła i proporcji" loading="lazy">
       </figure>
     </section>
 
-    <section class="offer-fixed-scope surface-concrete" id="zakres">
-      <div class="offer-fixed-scope__head reveal">
+    <section class="v33-scope surface-concrete" id="zakres">
+      <div class="v33-scope__head reveal">
         <p class="page-kicker dark">Zakres współpracy</p>
         <h2>Cztery formy pracy. Ten sam spokojny standard.</h2>
         <p>Każda opcja prowadzi do jasnych decyzji: funkcji, materiałów, światła, proporcji i kolejnych kroków potrzebnych do realizacji.</p>
       </div>
 
-      <div class="offer-fixed-accordion reveal">
+      <div class="v33-scope__list reveal">
         <details>
           <summary>
             <img src="scope-brief.webp" alt="Materiały i założenia do projektu wnętrza" loading="lazy">
@@ -86,7 +87,7 @@
             <em>mieszkanie / dom</em>
             <i>+</i>
           </summary>
-          <div class="offer-fixed-panel">
+          <div class="v33-scope__panel">
             <p>Najpełniejszy zakres dla inwestycji, która potrzebuje spójnego prowadzenia od układu funkcjonalnego po dokumentację dla wykonawców.</p>
             <ul>
               <li>układ i ergonomia całej przestrzeni</li>
@@ -105,7 +106,7 @@
             <em>kuchnia / łazienka / salon</em>
             <i>+</i>
           </summary>
-          <div class="offer-fixed-panel">
+          <div class="v33-scope__panel">
             <p>Dobry wybór, kiedy najważniejszy problem dotyczy jednej strefy: trudnej kuchni, łazienki, salonu, sypialni albo miejsca pracy.</p>
             <ul>
               <li>analiza funkcji i proporcji konkretnej przestrzeni</li>
@@ -124,7 +125,7 @@
             <em>decyzje przed remontem</em>
             <i>+</i>
           </summary>
-          <div class="offer-fixed-panel">
+          <div class="v33-scope__panel">
             <p>Krótka i konkretna forma współpracy, która pomaga uporządkować pomysły, ograniczenia oraz wybory przed zakupami lub startem prac.</p>
             <ul>
               <li>weryfikacja układu, funkcji i priorytetów</li>
@@ -143,7 +144,7 @@
             <em>kontrola decyzji</em>
             <i>+</i>
           </summary>
-          <div class="offer-fixed-panel">
+          <div class="v33-scope__panel">
             <p>Wsparcie w trakcie realizacji, kiedy pojawiają się pytania o zamienniki, materiały, wykonawców albo doprecyzowanie założeń.</p>
             <ul>
               <li>porządkowanie bieżących wyborów</li>
@@ -156,13 +157,12 @@
       </div>
     </section>
 
-
-    <section class="offer-v31-axis surface-concrete">
-      <div class="offer-v31-axis__head reveal">
+    <section class="v33-process surface-concrete">
+      <div class="v33-process__head reveal">
         <p class="page-kicker dark">Proces</p>
-        <h2>Prosta oś, żeby decyzje nie rozjechały się po drodze.</h2>
+        <h2>Oś pracy jest prosta, żeby decyzje nie rozjechały się po drodze.</h2>
       </div>
-      <div class="offer-v31-axis__line reveal">
+      <div class="v33-process__line reveal">
         <article><span>01</span><i></i><h3>Brief</h3><p>metraż, lokalizacja, etap inwestycji</p></article>
         <article><span>02</span><i></i><h3>Diagnoza</h3><p>funkcja, ograniczenia i priorytety</p></article>
         <article><span>03</span><i></i><h3>Koncepcja</h3><p>układ, materiały, światło i klimat</p></article>
@@ -171,12 +171,10 @@
       </div>
     </section>
 
-
-
-    <section class="offer-fixed-cta">
+    <section class="v33-cta">
       <img src="separator-01.jpg" alt="Minimalistyczne tło z materiałami" loading="lazy">
-      <div class="offer-fixed-cta__shade"></div>
-      <div class="offer-fixed-cta__copy reveal">
+      <div class="v33-cta__shade"></div>
+      <div class="v33-cta__copy reveal">
         <p class="page-kicker">Kontakt</p>
         <h2>Najpierw krótki opis wnętrza. Resztę uporządkujemy w rozmowie.</h2>
         <a class="line-link line-link--light" href="kontakt.html">Wyślij zapytanie <span>↗</span></a>
@@ -196,6 +194,6 @@
       <a href="https://kupgotowyprojekt.pl/polityka-prywatnosci/" target="_blank" rel="noopener">Polityka prywatności</a>
     </div>
   </footer>
-  <script src="pages.js?v=32.0.0" defer></script>
+  <script src="pages.js?v=33.0.0" defer></script>
 </body>
 </html>
