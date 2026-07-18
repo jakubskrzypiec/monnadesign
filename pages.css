@@ -895,3 +895,477 @@ html, body{overflow-x:hidden;}
     margin-right:auto!important;
   }
 }
+
+
+/* ===== V21 final fixes — scope accordion, contact redesign, realization copy ===== */
+
+/* Oferta — finalny zakres jako spokojny accordion, nie kafle/segmenty */
+.offer-scope-v21{
+  padding:clamp(88px,9vw,148px) var(--pad-x);
+  color:#080808;
+  display:grid;
+  grid-template-columns:minmax(180px,.28fr) minmax(0,1.1fr);
+  gap:clamp(30px,6vw,96px);
+  align-items:start;
+}
+
+.offer-scope-v21__label{
+  position:sticky;
+  top:calc(var(--header-h) + 34px);
+}
+
+.offer-scope-v21__intro{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.42fr);
+  gap:clamp(24px,5vw,76px);
+  align-items:end;
+  margin-bottom:clamp(42px,5vw,74px);
+}
+
+.offer-scope-v21__intro h2{
+  margin:0;
+  max-width:940px;
+  font-size:clamp(44px,5.6vw,94px);
+  line-height:.88;
+  letter-spacing:-.078em;
+  font-weight:500;
+}
+
+.offer-scope-v21__intro p{
+  margin:0 0 10px;
+  max-width:460px;
+  color:#514d47;
+  font-size:14px;
+  line-height:1.82;
+}
+
+.scope-accordion-v21{
+  grid-column:2;
+  border-top:1px solid rgba(0,0,0,.16);
+}
+
+.scope-accordion-v21 details{
+  border-bottom:1px solid rgba(0,0,0,.16);
+  background:transparent;
+}
+
+.scope-accordion-v21 summary{
+  min-height:118px;
+  display:grid;
+  grid-template-columns:78px minmax(0,1fr) minmax(180px,.32fr);
+  gap:clamp(18px,3vw,44px);
+  align-items:center;
+  list-style:none;
+  cursor:pointer;
+  color:#080808;
+}
+
+.scope-accordion-v21 summary::-webkit-details-marker{display:none;}
+
+.scope-accordion-v21 summary span{
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.18em;
+  color:#878178;
+}
+
+.scope-accordion-v21 summary strong{
+  font-size:clamp(28px,3.6vw,62px);
+  line-height:.94;
+  letter-spacing:-.07em;
+  font-weight:500;
+}
+
+.scope-accordion-v21 summary em{
+  justify-self:end;
+  font-style:normal;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#817b72;
+}
+
+.scope-accordion-v21 details[open] summary{
+  color:#050505;
+}
+
+.scope-accordion-v21 details>div{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.5fr);
+  gap:clamp(24px,4vw,70px);
+  padding:0 0 clamp(34px,4vw,56px) 78px;
+}
+
+.scope-accordion-v21 details p{
+  margin:0;
+  max-width:680px;
+  color:#4f4b45;
+  font-size:15px;
+  line-height:1.85;
+}
+
+.scope-accordion-v21 ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:10px;
+}
+
+.scope-accordion-v21 li{
+  position:relative;
+  padding-left:18px;
+  color:#5a554e;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.scope-accordion-v21 li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#050505;
+}
+
+/* Kontakt — finalny układ bez laptopów/telefonów/screenów */
+.contact-final-v21{
+  display:grid;
+  grid-template-columns:minmax(310px,.72fr) minmax(0,1fr);
+  gap:clamp(34px,6vw,96px);
+  padding:clamp(86px,9vw,148px) var(--pad-x);
+  color:#080808;
+}
+
+.contact-final-v21__aside{
+  position:sticky;
+  top:calc(var(--header-h) + 34px);
+  align-self:start;
+}
+
+.contact-final-v21__aside h2{
+  margin:24px 0 22px;
+  max-width:620px;
+  font-size:clamp(42px,5vw,86px);
+  line-height:.9;
+  letter-spacing:-.078em;
+  font-weight:500;
+}
+
+.contact-final-v21__aside p:not(.page-kicker){
+  margin:0 0 34px;
+  max-width:500px;
+  color:#514d47;
+  font-size:15px;
+  line-height:1.82;
+}
+
+.contact-direct-v21{
+  display:grid;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.contact-direct-v21 a{
+  position:relative;
+  min-height:106px;
+  padding:22px 56px 20px 22px;
+  display:grid;
+  align-content:space-between;
+  color:#080808;
+  border:1px solid rgba(0,0,0,.15);
+  background:#eeeae2;
+  transition:background .25s ease, transform .25s ease;
+}
+
+.contact-direct-v21 a:hover{
+  background:#050505;
+  color:#fff;
+  transform:translateX(6px);
+}
+
+.contact-direct-v21 small,
+.contact-socials-v21 a{
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.contact-direct-v21 strong{
+  font-size:clamp(18px,1.55vw,26px);
+  font-weight:500;
+  letter-spacing:-.045em;
+  overflow-wrap:anywhere;
+}
+
+.contact-direct-v21 span{
+  position:absolute;
+  right:22px;
+  bottom:20px;
+}
+
+.contact-socials-v21{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.contact-socials-v21 a{
+  min-height:48px;
+  padding:0 18px;
+  display:inline-flex;
+  align-items:center;
+  gap:20px;
+  border:1px solid rgba(0,0,0,.18);
+  color:#080808;
+  background:transparent;
+  transition:.25s ease;
+}
+
+.contact-socials-v21 a:hover{
+  background:#050505;
+  color:#fff;
+  border-color:#050505;
+}
+
+.contact-form-v21{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:1px;
+  padding:1px;
+  background:rgba(0,0,0,.17);
+  border:1px solid rgba(0,0,0,.14);
+  box-shadow:0 40px 100px rgba(0,0,0,.08);
+}
+
+.contact-form-v21::before{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid rgba(0,0,0,.08);
+  pointer-events:none;
+  z-index:1;
+}
+
+.contact-form-v21__top{
+  grid-column:1/-1;
+  min-height:82px;
+  padding:24px 26px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#050505;
+  color:#fff;
+}
+
+.contact-form-v21__top span{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.contact-form-v21__top small{
+  color:#807c75;
+  font-size:10px;
+  letter-spacing:.18em;
+}
+
+.contact-form-v21 .field{
+  position:relative;
+  z-index:2;
+  padding:22px 24px;
+  background:#f2efe8;
+  border:0;
+}
+
+.contact-form-v21 .field label{
+  display:block;
+  margin:0 0 16px;
+  color:#777168;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+
+.contact-form-v21 input,
+.contact-form-v21 select,
+.contact-form-v21 textarea{
+  width:100%;
+  min-height:44px;
+  padding:0;
+  border:0;
+  border-bottom:1px solid rgba(0,0,0,.2);
+  border-radius:0;
+  background:transparent;
+  color:#080808;
+  font:inherit;
+  outline:none;
+}
+
+.contact-form-v21 textarea{
+  min-height:132px;
+  padding-top:8px;
+  resize:vertical;
+}
+
+.contact-form-v21 input:focus,
+.contact-form-v21 select:focus,
+.contact-form-v21 textarea:focus{
+  border-color:#050505;
+}
+
+.contact-form-v21 .consent{
+  position:relative;
+  z-index:2;
+  background:#f2efe8;
+  padding:22px 24px;
+  border:0;
+}
+
+.contact-form-v21 .form-submit{
+  position:relative;
+  z-index:2;
+  background:#050505;
+  padding:0;
+  border:0;
+}
+
+.contact-form-v21 .submit-btn{
+  width:100%;
+  height:100%;
+  min-height:86px;
+  justify-content:space-between;
+  padding:0 26px;
+  border:0;
+  background:#050505;
+  color:#fff;
+}
+
+.contact-note-v21{
+  position:relative;
+  min-height:560px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:#050505;
+  color:#fff;
+  text-align:center;
+}
+
+.contact-note-v21 img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(.45) brightness(.6) contrast(.98);
+}
+
+.contact-note-v21__shade{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.48);
+}
+
+.contact-note-v21__copy{
+  position:relative;
+  z-index:2;
+  width:min(960px,calc(100% - 44px));
+  display:grid;
+  justify-items:center;
+}
+
+.contact-note-v21 h2{
+  margin:22px 0 18px;
+  font-size:clamp(42px,5.5vw,92px);
+  line-height:.9;
+  letter-spacing:-.078em;
+  font-weight:500;
+}
+
+.contact-note-v21 p:not(.page-kicker){
+  max-width:560px;
+  margin:0;
+  color:#c6c3bc;
+  line-height:1.8;
+}
+
+/* Realizacje — lekki polish na podpisy po zmianie nazw */
+.page-realizacje.page-v21 .portfolio-half__copy h2{
+  max-width:96%;
+  text-wrap:balance;
+}
+.page-realizacje.page-v21 .portfolio-half__copy p:not(.page-kicker){
+  max-width:760px;
+}
+
+/* Nadpisanie starego kontaktowego 50/50 z V20 — nie używamy już tej sekcji */
+.page-kontakt.page-v21 .contact-social-v16{
+  display:none!important;
+}
+
+/* responsywność */
+@media(max-width:1100px){
+  .offer-scope-v21,
+  .offer-scope-v21__intro,
+  .contact-final-v21{
+    grid-template-columns:1fr;
+  }
+  .offer-scope-v21__label,
+  .contact-final-v21__aside{
+    position:static;
+  }
+  .scope-accordion-v21{
+    grid-column:auto;
+  }
+  .scope-accordion-v21 summary{
+    grid-template-columns:54px 1fr;
+  }
+  .scope-accordion-v21 summary em{
+    grid-column:2;
+    justify-self:start;
+  }
+  .scope-accordion-v21 details>div{
+    grid-template-columns:1fr;
+    padding-left:54px;
+  }
+}
+
+@media(max-width:760px){
+  .offer-scope-v21,
+  .contact-final-v21{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .scope-accordion-v21 summary{
+    min-height:106px;
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:24px 0;
+  }
+  .scope-accordion-v21 summary em{
+    grid-column:auto;
+  }
+  .scope-accordion-v21 details>div{
+    padding-left:0;
+  }
+  .contact-form-v21{
+    grid-template-columns:1fr;
+  }
+  .contact-form-v21 .field--half,
+  .contact-form-v21 .field--third,
+  .contact-form-v21 .field--full{
+    grid-column:1;
+  }
+  .contact-note-v21{
+    min-height:470px;
+  }
+}

@@ -17,10 +17,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20.0.0">
-  <link rel="stylesheet" href="pages.css?v=20.0.0">
+  <link rel="stylesheet" href="style.css?v=21.0.0">
+  <link rel="stylesheet" href="pages.css?v=21.0.0">
 </head>
-<body class="subpage page-kontakt page-v18 page-v19 page-v20" data-page="kontakt">
+<body class="subpage page-kontakt page-v18 page-v19 page-v20 page-v21" data-page="kontakt">
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <header class="site-header site-header--solid" data-header>
     <a class="brand" href="index.html" aria-label="Monika Serbista Projektowanie Wnętrz — strona główna">
@@ -58,64 +58,95 @@
       </div>
     </section>
 
-    <section class="contact-meta-v16 surface-concrete">
-      <a class="reveal" href="tel:+48516092967"><span>Telefon</span><strong>+48 516 092 967</strong><i>↗</i></a>
-      <a class="reveal" href="mailto:kontakt@kupgotowyprojekt.pl"><span>E-mail</span><strong>kontakt@kupgotowyprojekt.pl</strong><i>↗</i></a>
-      <a class="reveal" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener"><span>Instagram</span><strong>@monika.serbista.projektowanie</strong><i>↗</i></a>
-    </section>
+    <section class="contact-final-v21 surface-concrete">
+      <div class="contact-final-v21__aside reveal">
+        <p class="page-kicker dark">Kontakt</p>
+        <h2>Wyślij krótki opis. Wrócimy z uporządkowanym kierunkiem.</h2>
+        <p>Najważniejsze na start to metraż, lokalizacja, etap inwestycji i informacja, czy potrzebujesz pełnego projektu, wybranego pomieszczenia czy konsultacji.</p>
 
-    <section class="brief-stage-v16 surface-concrete">
-      <div class="brief-stage-v16__intro reveal">
-        <p class="page-kicker dark">Brief</p>
-        <h2>Krótki brief wystarczy, żeby wejść w rozmowę konkretnie.</h2>
-        <p>Zamiast długiego formularza na start wystarczy kilka podstawowych informacji. To pozwala szybko określić sensowny zakres współpracy i kierunek dalszej rozmowy.</p>
-        <div class="brief-points-v16">
-          <div><small>01</small><strong>Metraż i lokalizacja</strong></div>
-          <div><small>02</small><strong>Etap inwestycji</strong></div>
-          <div><small>03</small><strong>Co ma się zmienić</strong></div>
+        <div class="contact-direct-v21">
+          <a href="tel:+48516092967"><small>Telefon</small><strong>+48 516 092 967</strong><span>↗</span></a>
+          <a href="mailto:kontakt@kupgotowyprojekt.pl"><small>E-mail</small><strong>kontakt@kupgotowyprojekt.pl</strong><span>↗</span></a>
+        </div>
+
+        <div class="contact-socials-v21">
+          <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Facebook <span>↗</span></a>
         </div>
       </div>
-      <form class="brief-form brief-form-v16 reveal" action="https://formsubmit.co/kontakt@kupgotowyprojekt.pl" method="POST">
+
+      <form class="contact-form-v21 reveal" action="https://formsubmit.co/kontakt@kupgotowyprojekt.pl" method="POST">
         <input type="hidden" name="_subject" value="Nowe zapytanie ze strony Monika Serbista Projektowanie Wnętrz">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://jakubskrzypiec.github.io/monnadesign/dziekujemy.html">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot">
-        <div class="field field--half"><label for="name">Imię i nazwisko</label><input id="name" name="Imię i nazwisko" type="text" required placeholder="Jak możemy się do Ciebie zwracać?"></div>
-        <div class="field field--half"><label for="email">E-mail</label><input id="email" name="E-mail" type="email" required placeholder="adres@email.pl"></div>
-        <div class="field field--half"><label for="phone">Telefon</label><input id="phone" name="Telefon" type="tel" placeholder="+48 000 000 000"></div>
-        <div class="field field--half"><label for="type">Rodzaj inwestycji</label><select id="type" name="Rodzaj inwestycji" required><option value="" selected disabled>Wybierz</option><option>Mieszkanie</option><option>Dom</option><option>Pojedyncze pomieszczenie</option><option>Konsultacja</option></select></div>
-        <div class="field field--third"><label for="location">Lokalizacja</label><input id="location" name="Lokalizacja" type="text" placeholder="Miasto / okolica"></div>
-        <div class="field field--third"><label for="area">Metraż</label><input id="area" name="Metraż" type="text" placeholder="np. 75 m²"></div>
-        <div class="field field--third"><label for="project-start">Planowany start</label><select id="project-start" name="Planowany start"><option>Jak najszybciej</option><option>1–3 miesiące</option><option>3–6 miesięcy</option><option>Później / orientacyjnie</option></select></div>
-        <div class="field field--full"><label for="message">Kilka słów o projekcie</label><textarea id="message" name="Opis projektu" rows="5" required placeholder="Co ma się zmienić i na czym najbardziej Ci zależy?"></textarea></div>
-        <label class="consent field--full"><input type="checkbox" required><span>Wyrażam zgodę na kontakt w sprawie przesłanego zapytania.</span></label>
-        <div class="form-submit field--full"><button class="submit-btn" type="submit">Wyślij brief <span>↗</span></button></div>
+
+        <div class="contact-form-v21__top">
+          <span>Brief projektowy</span>
+          <small>01 / 04</small>
+        </div>
+
+        <div class="field field--half">
+          <label for="name">Imię i nazwisko</label>
+          <input id="name" name="Imię i nazwisko" type="text" required placeholder="Jak możemy się do Ciebie zwracać?">
+        </div>
+        <div class="field field--half">
+          <label for="email">E-mail</label>
+          <input id="email" name="E-mail" type="email" required placeholder="adres@email.pl">
+        </div>
+        <div class="field field--half">
+          <label for="phone">Telefon</label>
+          <input id="phone" name="Telefon" type="tel" placeholder="+48 000 000 000">
+        </div>
+        <div class="field field--half">
+          <label for="type">Zakres</label>
+          <select id="type" name="Zakres" required>
+            <option value="" selected disabled>Wybierz zakres</option>
+            <option>Pełny projekt mieszkania / domu</option>
+            <option>Projekt wybranego pomieszczenia</option>
+            <option>Konsultacja projektowa</option>
+            <option>Wsparcie przy realizacji</option>
+          </select>
+        </div>
+        <div class="field field--third">
+          <label for="location">Lokalizacja</label>
+          <input id="location" name="Lokalizacja" type="text" placeholder="Miasto / okolica">
+        </div>
+        <div class="field field--third">
+          <label for="area">Metraż</label>
+          <input id="area" name="Metraż" type="text" placeholder="np. 75 m²">
+        </div>
+        <div class="field field--third">
+          <label for="project-start">Start</label>
+          <select id="project-start" name="Planowany start">
+            <option>Jak najszybciej</option>
+            <option>1–3 miesiące</option>
+            <option>3–6 miesięcy</option>
+            <option>Później / orientacyjnie</option>
+          </select>
+        </div>
+        <div class="field field--full">
+          <label for="message">Co ma się zmienić?</label>
+          <textarea id="message" name="Opis projektu" rows="6" required placeholder="Napisz kilka zdań o wnętrzu, etapie inwestycji i tym, z czym potrzebujesz pomocy."></textarea>
+        </div>
+        <label class="consent field--full">
+          <input type="checkbox" required>
+          <span>Wyrażam zgodę na kontakt w sprawie przesłanego zapytania.</span>
+        </label>
+        <div class="form-submit field--full">
+          <button class="submit-btn" type="submit">Wyślij brief <span>↗</span></button>
+        </div>
       </form>
     </section>
 
-    <section class="contact-social-v16 surface-concrete" aria-label="Social media">
-      <div class="contact-social-v16__socials reveal">
-        <p class="page-kicker dark">Social media</p>
-        <h2>Realizacje i kulisy pracy w jednym miejscu.</h2>
-        <p>Instagram pokazuje bieżące materiały, detale i realizacje. Facebook zostaje szybkim miejscem kontaktu oraz aktualności.</p>
-        <div class="contact-social-v16__devices" data-parallax-area>
-          <a class="social-laptop-v16" data-parallax="5" href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener" aria-label="Otwórz Instagram">
-            <span class="social-device-top-v14"></span>
-            <img src="social-instagram-desktop-sharp.png" alt="Profil Instagram Moniki Serbisty" loading="lazy">
-          </a>
-          <a class="social-phone-v16" data-parallax="-5" href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener" aria-label="Otwórz Facebook">
-            <span class="social-device-top-v14"></span>
-            <img src="social-facebook-phone-sharp.png" alt="Profil Facebook Moniki Serbisty" loading="lazy">
-          </a>
-        </div>
-        <div class="social-overlap-v14__links">
-          <a href="https://www.instagram.com/monika.serbista.projektowanie" target="_blank" rel="noopener">Zobacz Instagram <span>↗</span></a>
-          <a href="https://www.facebook.com/MonikaSerbistaProjektowanieWnetrz" target="_blank" rel="noopener">Otwórz Facebook <span>↗</span></a>
-        </div>
-      </div>
-      <div class="contact-social-v16__photo reveal">
-        <img src="detail-04.jpg" alt="Detal wnętrza i materiały w miękkim świetle" loading="lazy">
+    <section class="contact-note-v21">
+      <img src="detail-03.jpg" alt="Detal materiałów i światła we wnętrzu" loading="lazy">
+      <div class="contact-note-v21__shade"></div>
+      <div class="contact-note-v21__copy reveal">
+        <p class="page-kicker">Przed rozmową</p>
+        <h2>Nie musisz mieć gotowej wizji. Wystarczy problem, który chcesz rozwiązać.</h2>
+        <p>Dobry projekt zaczyna się od pytań o codzienność, nie od przypadkowych inspiracji.</p>
       </div>
     </section>
 
@@ -145,6 +176,6 @@
       <a href="https://kupgotowyprojekt.pl/polityka-prywatnosci/" target="_blank" rel="noopener">Polityka prywatności</a>
     </div>
   </footer>
-  <script src="pages.js?v=19.0.0" defer></script>
+  <script src="pages.js?v=21.0.0" defer></script>
 </body>
 </html>
