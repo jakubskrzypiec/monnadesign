@@ -106,4 +106,41 @@
     });
   });
   document.querySelectorAll('[data-year]').forEach((node) => { node.textContent = new Date().getFullYear(); });
+
+  // V23 premium entry overlay and brief popup
+  const initPremiumEntry = () => {
+    if (reducedMotion || document.body.classList.contains('premium-entry-done')) return;
+    document.body.classList.add('premium-entry-done');
+    const gate = document.createElement('div');
+    gate.className = 'premium-entry';
+    gate.innerHTML = '<div class="premium-entry__mark">MS</div><div class="premium-entry__line"></div><div class="premium-entry__caption">Projektowanie wnętrz</div>';
+    document.body.prepend(gate);
+    window.setTimeout(() => gate.classList.add('is-leaving'), 760);
+    window.setTimeout(() => gate.remove(), 1600);
+  };
+  initPremiumEntry();
+
+  const initBriefPopup = () => {
+    if (window.localStorage?.getItem('monnaBriefPopupClosed') === '1') return;
+    const popup = document.createElement('aside');
+    popup.className = 'premium-brief-popup';
+    popup.innerHTML = '<button type="button" aria-label="Zamknij">×</button><small>Brief</small><strong>Masz metraż i kilka zdjęć?</strong><p>Wyślij krótki opis, a wrócimy z uporządkowanym zakresem rozmowy.</p><a href="kontakt.html">Wyślij zapytanie ↗</a>';
+    const show = () => popup.classList.add('is-visible');
+    const hide = () => { popup.classList.remove('is-visible'); window.localStorage?.setItem('monnaBriefPopupClosed','1'); };
+    popup.querySelector('button')?.addEventListener('click', hide);
+    document.body.appendChild(popup);
+    let triggered = false;
+    const trigger = () => { if (triggered) return; triggered = true; show(); };
+    window.setTimeout(trigger, 5200);
+    window.addEventListener('scroll', () => { if (window.scrollY > window.innerHeight * 0.7) trigger(); }, { passive:true });
+  };
+  initBriefPopup();
+
+  document.querySelectorAll('.scope-image-bars-v23 details').forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      document.querySelectorAll('.scope-image-bars-v23 details').forEach((other) => { if (other !== details) other.open = false; });
+    });
+  });
+
 })();
