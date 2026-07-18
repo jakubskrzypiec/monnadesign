@@ -195,4 +195,44 @@ const magnetSelectors = [
   };
   initMajorInteractionsV25();
 
+
+
+  // V34 final motion polish: progressive reveal, subtle parallax + details accessibility
+  const initFinalMotionV34 = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.documentElement.classList.add('motion-v34-ready');
+
+    const cards = document.querySelectorAll('.v33-scope details, .v33-news-card, .project-card, .portfolio-card, .contact-card, .service-card');
+    cards.forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - .5) * 10;
+        const y = ((event.clientY - rect.top) / rect.height - .5) * 10;
+        card.style.setProperty('--mx', `${x}px`);
+        card.style.setProperty('--my', `${y}px`);
+      }, { passive:true });
+      card.addEventListener('pointerleave', () => {
+        card.style.removeProperty('--mx');
+        card.style.removeProperty('--my');
+      });
+    });
+
+    document.querySelectorAll('.v33-scope details').forEach((item) => {
+      const summary = item.querySelector('summary');
+      if (!summary) return;
+      summary.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          if (item.open) item.classList.add('is-opened-v34');
+          else item.classList.remove('is-opened-v34');
+        });
+      });
+    });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFinalMotionV34, { once:true });
+  } else {
+    initFinalMotionV34();
+  }
+
 })();

@@ -804,3 +804,191 @@
     gap:14px;
   }
 }
+
+
+/* =======================================================================
+   V34 — final oferta axis + premium interaction polish
+   ======================================================================= */
+
+/* Zakres: smoother details interaction */
+.page-oferta.page-v34 .v33-scope details{
+  transform-origin:center;
+}
+.page-oferta.page-v34 .v33-scope summary{
+  overflow:hidden;
+}
+.page-oferta.page-v34 .v33-scope summary strong,
+.page-oferta.page-v34 .v33-scope summary em,
+.page-oferta.page-v34 .v33-scope summary span,
+.page-oferta.page-v34 .v33-scope summary i{
+  transition:transform .42s var(--ease-premium), opacity .35s ease, background .28s ease, color .28s ease;
+}
+.page-oferta.page-v34 .v33-scope details:hover summary strong{
+  transform:translateX(10px);
+}
+.page-oferta.page-v34 .v33-scope details[open] .v33-scope__panel{
+  animation:v34PanelOpen .46s var(--ease-premium) both;
+}
+@keyframes v34PanelOpen{
+  from{opacity:0;transform:translateY(-14px);filter:blur(6px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+
+/* Oferta process: real line + dots on the line */
+.page-oferta.page-v34 .v33-process{
+  padding:clamp(76px,7vw,124px) var(--pad-x) clamp(96px,8vw,150px)!important;
+  background:#e7e3da!important;
+}
+.page-oferta.page-v34 .v33-process__head{
+  width:min(1240px,100%)!important;
+  margin:0 auto clamp(58px,6vw,96px)!important;
+  display:grid!important;
+  grid-template-columns:minmax(160px,.25fr) minmax(0,1fr)!important;
+  gap:clamp(28px,5vw,90px)!important;
+  align-items:start!important;
+}
+.page-oferta.page-v34 .v33-process__head h2{
+  margin:0!important;
+  max-width:840px!important;
+  font-size:clamp(42px,4.9vw,84px)!important;
+  line-height:.9!important;
+  letter-spacing:-.078em!important;
+  font-weight:500!important;
+}
+.page-oferta.page-v34 .v33-process__line{
+  position:relative!important;
+  width:min(1480px,100%)!important;
+  margin:0 auto!important;
+  padding-top:34px!important;
+  display:grid!important;
+  grid-template-columns:repeat(5,1fr)!important;
+  gap:0!important;
+  border-top:0!important;
+}
+.page-oferta.page-v34 .v33-process__line::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  top:45px!important;
+  height:1px!important;
+  background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.32),rgba(0,0,0,.05))!important;
+  transform-origin:left center!important;
+}
+.page-oferta.page-v34 .v33-process__line.is-visible::before,
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible::before{
+  animation:v34LineDraw 1.15s var(--ease-premium) both!important;
+}
+@keyframes v34LineDraw{
+  from{transform:scaleX(0);opacity:.2}
+  to{transform:scaleX(1);opacity:1}
+}
+.page-oferta.page-v34 .v33-process__line article{
+  position:relative!important;
+  min-height:220px!important;
+  padding:0 clamp(20px,2.3vw,38px) 0 0!important;
+  border:0!important;
+  transition:transform .38s var(--ease-premium), opacity .38s ease!important;
+}
+.page-oferta.page-v34 .v33-process__line article:hover{
+  transform:translateY(-8px)!important;
+}
+.page-oferta.page-v34 .v33-process__line article::after{
+  content:""!important;
+  position:absolute!important;
+  right:0!important;
+  top:45px!important;
+  width:1px!important;
+  height:124px!important;
+  background:rgba(0,0,0,.1)!important;
+}
+.page-oferta.page-v34 .v33-process__line article:last-child::after{
+  display:none!important;
+}
+.page-oferta.page-v34 .v33-process__line span{
+  display:block!important;
+  margin:0 0 28px!important;
+  color:#8d857a!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  letter-spacing:.16em!important;
+  transform:translateY(-4px)!important;
+}
+.page-oferta.page-v34 .v33-process__line i{
+  position:relative!important;
+  z-index:2!important;
+  width:16px!important;
+  height:16px!important;
+  margin:0 0 38px!important;
+  display:block!important;
+  border-radius:50%!important;
+  background:#050505!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:0 0 0 8px #e7e3da!important;
+  transition:transform .34s var(--ease-premium), box-shadow .34s ease, background .34s ease!important;
+}
+.page-oferta.page-v34 .v33-process__line article:hover i{
+  transform:scale(1.28)!important;
+  box-shadow:0 0 0 12px #e7e3da, 0 16px 45px rgba(0,0,0,.18)!important;
+}
+.page-oferta.page-v34 .v33-process__line h3{
+  margin:0 0 13px!important;
+  font-size:clamp(27px,2.45vw,44px)!important;
+  line-height:1!important;
+  letter-spacing:-.06em!important;
+  font-weight:500!important;
+}
+.page-oferta.page-v34 .v33-process__line p{
+  margin:0!important;
+  max-width:220px!important;
+  color:#5f574e!important;
+  font-size:13px!important;
+  line-height:1.62!important;
+}
+
+/* Reveal stagger for the five axis points */
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible article{
+  animation:v34AxisItem .72s var(--ease-premium) both;
+}
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible article:nth-child(1){animation-delay:.06s;}
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible article:nth-child(2){animation-delay:.14s;}
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible article:nth-child(3){animation-delay:.22s;}
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible article:nth-child(4){animation-delay:.30s;}
+.page-oferta.page-v34 .v33-process__line.reveal.is-visible article:nth-child(5){animation-delay:.38s;}
+@keyframes v34AxisItem{
+  from{opacity:0;transform:translateY(26px);filter:blur(8px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+
+@media(max-width:1000px){
+  .page-oferta.page-v34 .v33-process__line{
+    grid-template-columns:1fr!important;
+    padding-top:0!important;
+  }
+  .page-oferta.page-v34 .v33-process__line::before{
+    left:8px!important;
+    right:auto!important;
+    top:0!important;
+    bottom:0!important;
+    width:1px!important;
+    height:auto!important;
+    transform-origin:top center!important;
+  }
+  .page-oferta.page-v34 .v33-process__line article{
+    min-height:auto!important;
+    padding:0 0 34px 42px!important;
+  }
+  .page-oferta.page-v34 .v33-process__line article::after{
+    display:none!important;
+  }
+  .page-oferta.page-v34 .v33-process__line span{
+    margin-bottom:12px!important;
+  }
+  .page-oferta.page-v34 .v33-process__line i{
+    position:absolute!important;
+    left:1px!important;
+    top:24px!important;
+    margin:0!important;
+  }
+}

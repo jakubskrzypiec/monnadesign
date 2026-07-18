@@ -1222,3 +1222,183 @@ body.subpage .premium-entry-v31{
   from{opacity:1;filter:blur(0);transform:scale(1)}
   to{opacity:0;filter:blur(10px);transform:scale(1.025)}
 }
+
+
+/* =======================================================================
+   V34 FINAL MOTION LAYER — global polish
+   ======================================================================= */
+:root{
+  --ease-premium:cubic-bezier(.17,.84,.22,1);
+}
+
+/* universal reveal gets more premium depth */
+.page-v34 .reveal{
+  will-change:opacity, transform, filter;
+}
+.page-v34 .reveal:not(.is-visible){
+  opacity:0;
+  transform:translate3d(0,42px,0) scale(.985);
+  filter:blur(10px);
+}
+.page-v34 .reveal.is-visible{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+  transition:
+    opacity 1.05s var(--ease-premium),
+    transform 1.05s var(--ease-premium),
+    filter 1.05s ease;
+}
+.page-v34 .reveal:nth-child(2){transition-delay:.05s;}
+.page-v34 .reveal:nth-child(3){transition-delay:.1s;}
+.page-v34 .reveal:nth-child(4){transition-delay:.15s;}
+
+/* page hero entrance */
+.page-v34 .v33-subhero > img,
+.page-v34 .page-hero > img,
+.page-v34 .sub-hero-v16 img{
+  transform:scale(1.045);
+  transition:transform 1.45s var(--ease-premium), filter 1.1s ease;
+  will-change:transform;
+}
+.page-v34.entry-v25-finished .v33-subhero > img,
+.page-v34.entry-v25-finished .page-hero > img,
+.page-v34.entry-v25-finished .sub-hero-v16 img{
+  transform:scale(1.01);
+}
+.page-v34 .v33-subhero h1,
+.page-v34 .page-hero h1,
+.page-v34 .sub-hero-v16 h1,
+.page-v34 .hero h1{
+  animation:v34TitleIn 1.05s var(--ease-premium) both;
+}
+.page-v34 .v33-subhero p,
+.page-v34 .page-hero p,
+.page-v34 .sub-hero-v16 p{
+  animation:v34TextIn 1.05s var(--ease-premium) .12s both;
+}
+@keyframes v34TitleIn{
+  from{opacity:0;transform:translate3d(0,32px,0);letter-spacing:-.115em;filter:blur(8px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+@keyframes v34TextIn{
+  from{opacity:0;transform:translate3d(0,20px,0);filter:blur(6px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+
+/* buttons / links: magnetic-like feel in CSS */
+.page-v34 a,
+.page-v34 button,
+.page-v34 summary{
+  -webkit-tap-highlight-color:transparent;
+}
+.page-v34 .header-cta,
+.page-v34 .line-link,
+.page-v34 .editorial-link,
+.page-v34 .v33-link,
+.page-v34 .v33-scope__panel a,
+.page-v34 .v33-news-card span,
+.page-v34 .contact-card,
+.page-v34 .form-submit{
+  transition:
+    transform .34s var(--ease-premium),
+    background .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    opacity .28s ease,
+    box-shadow .34s ease!important;
+}
+.page-v34 .header-cta:hover,
+.page-v34 .line-link:hover,
+.page-v34 .editorial-link:hover,
+.page-v34 .v33-link:hover,
+.page-v34 .v33-scope__panel a:hover,
+.page-v34 .contact-card:hover,
+.page-v34 .form-submit:hover{
+  transform:translate3d(0,-4px,0)!important;
+}
+
+/* images / cards premium hover */
+.page-v34 figure,
+.page-v34 .v33-scope details,
+.page-v34 .v33-news-card,
+.page-v34 .project-card,
+.page-v34 .portfolio-card,
+.page-v34 .contact-card,
+.page-v34 .faq-item,
+.page-v34 .service-card{
+  will-change:transform;
+}
+.page-v34 .v33-scope details,
+.page-v34 .v33-news-card,
+.page-v34 .project-card,
+.page-v34 .portfolio-card,
+.page-v34 .contact-card{
+  transition:
+    transform .48s var(--ease-premium),
+    box-shadow .48s ease,
+    border-color .36s ease,
+    filter .36s ease!important;
+}
+.page-v34 .v33-scope details:hover,
+.page-v34 .v33-news-card:hover,
+.page-v34 .project-card:hover,
+.page-v34 .portfolio-card:hover,
+.page-v34 .contact-card:hover{
+  transform:translate3d(0,-8px,0)!important;
+}
+.page-v34 img{
+  backface-visibility:hidden;
+}
+.page-v34 figure:hover img,
+.page-v34 .v33-scope details:hover summary img,
+.page-v34 .v33-news-card:hover img{
+  transform:scale(1.045);
+}
+
+/* form fields smoother */
+.page-v34 input,
+.page-v34 textarea,
+.page-v34 select{
+  transition:border-color .25s ease, background .25s ease, transform .25s var(--ease-premium), box-shadow .25s ease;
+}
+.page-v34 input:focus,
+.page-v34 textarea:focus,
+.page-v34 select:focus{
+  transform:translateY(-2px);
+  box-shadow:0 18px 50px rgba(0,0,0,.08);
+}
+
+/* clean Studio intro: no black panels */
+.page-v34 .premium-entry-v25__panel,
+.page-v34 .premium-entry-v25__grid{
+  display:none!important;
+}
+.page-v34 .premium-entry-v25{
+  background:#050505;
+}
+.page-v34 .premium-entry-v25__bg{
+  filter:grayscale(.14) brightness(.46) contrast(1.08) blur(2px);
+  transform:scale(1.075);
+  transition:transform 1.4s var(--ease-premium), filter 1.2s ease, opacity .7s ease;
+}
+.page-v34 .premium-entry-v25.is-ready .premium-entry-v25__bg{
+  filter:grayscale(.04) brightness(.68) contrast(1.08) blur(0);
+  transform:scale(1.012);
+}
+.page-v34 .premium-entry-v25.is-leaving{
+  animation:v34EntryOut .72s var(--ease-premium) both!important;
+}
+@keyframes v34EntryOut{
+  to{opacity:0;filter:blur(10px);transform:scale(1.025)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .page-v34 *,
+  .page-v34 *::before,
+  .page-v34 *::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
