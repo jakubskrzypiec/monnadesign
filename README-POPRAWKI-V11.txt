@@ -9,4 +9,4 @@ Zakres:
 Wgrywanie:
 - Najbezpieczniej wrzucić cały ZIP i zastąpić pliki w repozytorium.
 - Landing index.html nie był przebudowywany w tej rundzie.
-- Cache-busting ustawiony na pages.css?v=11.0.0 i pages.js?v=11.0.0.
+- Cache-busting ustawiony na pages.css?v=22.0.0

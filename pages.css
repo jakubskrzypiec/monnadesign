@@ -1369,3 +1369,38 @@ html, body{overflow-x:hidden;}
     min-height:470px;
   }
 }
+
+
+/* ===== V22 — zakres współpracy ze zdjęciami + final email/safe copy ===== */
+.offer-scope-v22{
+  padding:clamp(88px,9vw,150px) var(--pad-x);
+  color:#080808;
+  display:grid;
+  grid-template-columns:minmax(170px,.26fr) minmax(0,1.1fr);
+  gap:clamp(30px,6vw,96px);
+  align-items:start;
+}
+.offer-scope-v22__label{position:sticky;top:calc(var(--header-h) + 34px)}
+.offer-scope-v22__intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.42fr);gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.offer-scope-v22__intro h2{margin:0;max-width:920px;font-size:clamp(44px,5.4vw,92px);line-height:.89;letter-spacing:-.078em;font-weight:500}
+.offer-scope-v22__intro p{margin:0 0 10px;max-width:500px;color:#514d47;font-size:14px;line-height:1.82}
+.scope-image-bars-v22{grid-column:2;display:grid;gap:14px}
+.scope-image-bars-v22 details{position:relative;overflow:hidden;min-height:188px;border:1px solid rgba(0,0,0,.13);background:#050505;color:#fff;transition:min-height .35s ease, transform .35s ease}
+.scope-image-bars-v22 details[open]{min-height:370px}
+.scope-image-bars-v22 details:hover{transform:translateY(-2px)}
+.scope-image-bars-v22 summary{position:relative;min-height:188px;padding:26px 32px;display:grid;grid-template-columns:78px minmax(0,1fr) minmax(180px,.32fr);gap:clamp(18px,3vw,44px);align-items:end;list-style:none;cursor:pointer;z-index:2}
+.scope-image-bars-v22 summary::-webkit-details-marker{display:none}
+.scope-image-bars-v22 summary::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.92),rgba(5,5,5,.65) 48%,rgba(5,5,5,.22));z-index:-1}
+.scope-image-bars-v22 summary img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2;filter:grayscale(.28) brightness(.8) contrast(1.02);transition:transform .9s cubic-bezier(.2,.7,.2,1), filter .35s ease}
+.scope-image-bars-v22 details[open] summary img,.scope-image-bars-v22 details:hover summary img{transform:scale(1.035);filter:grayscale(.15) brightness(.86) contrast(1.02)}
+.scope-image-bars-v22 summary span{font-size:11px;font-weight:800;letter-spacing:.18em;color:rgba(255,255,255,.6);align-self:start}
+.scope-image-bars-v22 summary strong{max-width:760px;font-size:clamp(34px,4.4vw,76px);line-height:.88;letter-spacing:-.078em;font-weight:500}
+.scope-image-bars-v22 summary em{justify-self:end;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72);padding-bottom:10px;text-align:right}
+.scope-image-bars-v22 details>div{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.43fr);gap:clamp(24px,4vw,70px);padding:0 32px 30px 110px;color:#fff}
+.scope-image-bars-v22 details>div p{margin:0;max-width:650px;color:rgba(255,255,255,.78);font-size:15px;line-height:1.82}
+.scope-image-bars-v22 ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.scope-image-bars-v22 li{position:relative;padding-left:18px;color:rgba(255,255,255,.72);font-size:13px;line-height:1.62}
+.scope-image-bars-v22 li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;border-radius:50%;background:#fff;opacity:.75}
+.page-realizacje.page-v22 .portfolio-half__copy h2{max-width:98%;text-wrap:balance}.page-realizacje.page-v22 .portfolio-half__copy p:not(.page-kicker){max-width:760px}
+@media(max-width:1100px){.offer-scope-v22,.offer-scope-v22__intro{grid-template-columns:1fr}.offer-scope-v22__label{position:static}.scope-image-bars-v22{grid-column:auto}.scope-image-bars-v22 summary{grid-template-columns:56px 1fr}.scope-image-bars-v22 summary em{grid-column:2;justify-self:start}.scope-image-bars-v22 details>div{grid-template-columns:1fr;padding-left:88px}}
+@media(max-width:760px){.offer-scope-v22{padding-left:18px;padding-right:18px}.scope-image-bars-v22 summary{grid-template-columns:1fr;min-height:250px;padding:24px}.scope-image-bars-v22 details[open]{min-height:430px}.scope-image-bars-v22 summary em{grid-column:auto;text-align:left}.scope-image-bars-v22 details>div{padding:0 24px 28px;grid-template-columns:1fr}}

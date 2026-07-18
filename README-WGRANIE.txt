@@ -26,6 +26,6 @@ GOTOWE ADRESY:
 
 FORMULARZ:
 Formularz korzysta z FormSubmit i wysyła wiadomości na:
-kontakt@kupgotowyprojekt.pl
+serbistamonika@gmail.com
 
 Przy pierwszej wiadomości FormSubmit może wysłać na skrzynkę link aktywacyjny.
