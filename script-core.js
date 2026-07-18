@@ -353,36 +353,55 @@
     node.textContent = new Date().getFullYear();
   });
 
-  // V24 cinematic entry overlay — only once per session, based on hero image
-  const initPremiumEntry = () => {
-    if (reducedMotion) return;
+  // V25 major-grade cinematic entry — only once per session, clean transition from hero image
+  const initMajorEntryV25 = () => {
+    if (reducedMotion) {
+      document.body.classList.add('entry-v25-finished');
+      return;
+    }
     try {
-      if (window.sessionStorage?.getItem('monnaEntrySeen') === '1') return;
-      window.sessionStorage?.setItem('monnaEntrySeen', '1');
+      if (window.sessionStorage?.getItem('monnaEntrySeenV25') === '1') {
+        document.body.classList.add('entry-v25-finished');
+        return;
+      }
+      window.sessionStorage?.setItem('monnaEntrySeenV25', '1');
     } catch (error) {}
 
     const heroImage =
       document.querySelector('.hero__frame.is-active') ||
       document.querySelector('.sub-hero-v16__image img') ||
       document.querySelector('.page-hero > img') ||
-      document.querySelector('.page-hero img');
+      document.querySelector('.page-hero img') ||
+      document.querySelector('main img');
 
     const source = heroImage?.currentSrc || heroImage?.src || 'hero-01.jpg';
     const gate = document.createElement('div');
-    gate.className = 'premium-entry-v24';
+    gate.className = 'premium-entry-v25';
     gate.style.setProperty('--entry-bg', `url("${source}")`);
-    gate.innerHTML = '<div class="premium-entry-v24__image" aria-hidden="true"></div><div class="premium-entry-v24__veil" aria-hidden="true"></div><div class="premium-entry-v24__content"><img src="monogram-white.png" alt="" class="premium-entry-v24__mark"><span>MONIKA SERBISTA</span><strong>Projektowanie wnętrz</strong><i></i></div>';
-    document.body.classList.add('entry-v24-active');
+    gate.innerHTML = `
+      <div class="premium-entry-v25__bg" aria-hidden="true"></div>
+      <div class="premium-entry-v25__grid" aria-hidden="true"></div>
+      <div class="premium-entry-v25__panel premium-entry-v25__panel--top" aria-hidden="true"></div>
+      <div class="premium-entry-v25__panel premium-entry-v25__panel--bottom" aria-hidden="true"></div>
+      <div class="premium-entry-v25__content">
+        <img src="monogram-white.png" alt="" class="premium-entry-v25__mark">
+        <span>MONIKA SERBISTA</span>
+        <strong>Projektowanie wnętrz</strong>
+        <i></i>
+      </div>`;
+    document.body.classList.add('entry-v25-active');
     document.body.prepend(gate);
-    window.setTimeout(() => gate.classList.add('is-ready'), 80);
-    window.setTimeout(() => gate.classList.add('is-leaving'), 1180);
+    requestAnimationFrame(() => gate.classList.add('is-ready'));
+    window.setTimeout(() => gate.classList.add('is-split'), 980);
+    window.setTimeout(() => gate.classList.add('is-leaving'), 1480);
     window.setTimeout(() => {
       gate.remove();
-      document.body.classList.remove('entry-v24-active');
-      document.body.classList.add('entry-v24-finished');
-    }, 2050);
+      document.body.classList.remove('entry-v25-active');
+      document.body.classList.add('entry-v25-finished');
+      window.dispatchEvent(new CustomEvent('monna:entry-complete'));
+    }, 2300);
   };
-  initPremiumEntry();
+  initMajorEntryV25();
 
   const initBriefPopup = () => {
     if (window.localStorage?.getItem('monnaBriefPopupClosed') === '1') return;
@@ -413,5 +432,77 @@
       document.querySelectorAll('.scope-showcase-v24 details').forEach((other) => { if (other !== details) other.open = false; });
     });
   });
+
+
+  // V25 premium interactions: progress, cursor glow, magnetic buttons, scope/axis motion
+  const initMajorInteractionsV25 = () => {
+    document.body.classList.add('lux-v25-ready');
+
+    const progress = document.createElement('div');
+    progress.className = 'scroll-progress-v25';
+    document.body.appendChild(progress);
+    const updateProgress = () => {
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      progress.style.transform = `scaleX(${Math.min(1, Math.max(0, window.scrollY / max))})`;
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
+      const glow = document.createElement('div');
+      glow.className = 'cursor-glow-v25';
+      document.body.appendChild(glow);
+      let gx = window.innerWidth / 2;
+      let gy = window.innerHeight / 2;
+      let tx = gx;
+      let ty = gy;
+      const moveGlow = () => {
+        gx += (tx - gx) * 0.12;
+        gy += (ty - gy) * 0.12;
+        glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
+        requestAnimationFrame(moveGlow);
+      };
+      moveGlow();
+      window.addEventListener('pointermove', (event) => { tx = event.clientX; ty = event.clientY; }, { passive: true });
+
+      const magnetSelectors = [
+        '.hero-btn', '.header-cta', '.line-link', '.editorial-link', '.submit-btn',
+        '.scope-showcase-v24 summary', '.scope-showcase-v24__panel a',
+        '.process-orbit-v16__line article', '.contact-direct-v23 a', '.contact-socials-v21 a', '.contact-socials-v23 a', '.premium-brief-popup a'
+      ].join(',');
+
+      document.querySelectorAll(magnetSelectors).forEach((target) => {
+        let raf = null;
+        target.addEventListener('pointermove', (event) => {
+          const rect = target.getBoundingClientRect();
+          const x = (event.clientX - rect.left - rect.width / 2) / rect.width;
+          const y = (event.clientY - rect.top - rect.height / 2) / rect.height;
+          target.style.setProperty('--mx', `${x.toFixed(3)}`);
+          target.style.setProperty('--my', `${y.toFixed(3)}`);
+          if (target.matches('.hero-btn, .header-cta, .line-link, .editorial-link, .submit-btn, .scope-showcase-v24__panel a, .contact-direct-v23 a, .contact-socials-v21 a, .contact-socials-v23 a')) {
+            if (raf) cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+              target.style.transform = `translate3d(${x * 10}px, ${y * 9}px, 0)`;
+            });
+          }
+        });
+        target.addEventListener('pointerleave', () => {
+          target.style.removeProperty('--mx');
+          target.style.removeProperty('--my');
+          target.style.transform = '';
+        });
+      });
+    }
+
+    document.querySelectorAll('.scope-showcase-v24 details').forEach((details) => {
+      const summary = details.querySelector('summary');
+      summary?.setAttribute('aria-expanded', String(details.open));
+      details.addEventListener('toggle', () => {
+        summary?.setAttribute('aria-expanded', String(details.open));
+        if (details.open) details.classList.add('has-opened');
+      });
+    });
+  };
+  initMajorInteractionsV25();
 
 })();
