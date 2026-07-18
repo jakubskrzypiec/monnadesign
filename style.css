@@ -1062,3 +1062,30 @@ body.is-loading{overflow:auto!important}
 .page-v25 .hero-btn,.page-v25 .header-cta,.page-v25 .line-link,.page-v25 .editorial-link,.page-v25 .submit-btn,.page-v25 .contact-socials-v21 a,.page-v25 .contact-socials-v23 a{position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.17,.84,.22,1),background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease}.page-v25 .hero-btn::before,.page-v25 .header-cta::before,.page-v25 .line-link::before,.page-v25 .editorial-link::before,.page-v25 .submit-btn::before,.page-v25 .contact-socials-v21 a::before,.page-v25 .contact-socials-v23 a::before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at calc((var(--mx,0)*50%)+50%) calc((var(--my,0)*50%)+50%),rgba(255,255,255,.28),transparent 35%);opacity:0;transition:opacity .25s ease;pointer-events:none}.page-v25 .hero-btn:hover::before,.page-v25 .header-cta:hover::before,.page-v25 .line-link:hover::before,.page-v25 .editorial-link:hover::before,.page-v25 .submit-btn:hover::before,.page-v25 .contact-socials-v21 a:hover::before,.page-v25 .contact-socials-v23 a:hover::before{opacity:1}.page-v25 .hero-btn:hover,.page-v25 .header-cta:hover,.page-v25 .line-link:hover,.page-v25 .editorial-link:hover,.page-v25 .submit-btn:hover{box-shadow:0 18px 50px rgba(0,0,0,.18)}
 .page-v25 .reveal{transition-duration:1.05s!important;transition-timing-function:cubic-bezier(.17,.84,.22,1)!important}.page-v25 .reveal:nth-child(2){transition-delay:.06s}.page-v25 .reveal:nth-child(3){transition-delay:.1s}.page-v25 .reveal:nth-child(4){transition-delay:.14s}
 @media(prefers-reduced-motion:reduce){.premium-entry-v25,.cursor-glow-v25,.scroll-progress-v25{display:none!important}.entry-v25-active{overflow:auto}.entry-v25-finished .hero__controls,.entry-v25-finished .page-hero__content,.entry-v25-finished .sub-hero-v16__copy,.entry-v25-finished .hero__frame.is-active,.entry-v25-finished .page-hero>img,.entry-v25-finished .sub-hero-v16__image img{animation:none!important}}
+
+
+/* ===== V26 — clean entry and no cursor glow ===== */
+.cursor-glow-v25{display:none!important;opacity:0!important;visibility:hidden!important;}
+
+.premium-entry-v25{
+  background:#050505;
+}
+.premium-entry-v25__bg{
+  filter:brightness(.52) contrast(1.05) saturate(.82) blur(2px);
+}
+.premium-entry-v25.is-ready .premium-entry-v25__bg{
+  filter:brightness(.72) contrast(1.05) saturate(.86) blur(0);
+}
+.premium-entry-v25__panel{
+  transition-duration:1.18s;
+}
+.premium-entry-v25__content{
+  transform:translateY(12px);
+  transition:opacity .75s ease, transform .9s cubic-bezier(.17,.84,.22,1);
+}
+.premium-entry-v25.is-ready .premium-entry-v25__content{
+  transform:translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .premium-entry-v25{display:none!important;}
+}

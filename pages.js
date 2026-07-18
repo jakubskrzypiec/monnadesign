@@ -113,13 +113,7 @@
       document.body.classList.add('entry-v25-finished');
       return;
     }
-    try {
-      if (window.sessionStorage?.getItem('monnaEntrySeenV25') === '1') {
-        document.body.classList.add('entry-v25-finished');
-        return;
-      }
-      window.sessionStorage?.setItem('monnaEntrySeenV25', '1');
-    } catch (error) {}
+    // V26: intro runs on every page load / refresh. No sessionStorage lock.
 
     const heroImage =
       document.querySelector('.hero__frame.is-active') ||
@@ -188,7 +182,7 @@
   });
 
 
-  // V25 premium interactions: progress, cursor glow, magnetic buttons, scope/axis motion
+  // V25 premium interactions: progress, magnetic buttons, scope/axis motion
   const initMajorInteractionsV25 = () => {
     document.body.classList.add('lux-v25-ready');
 
@@ -203,23 +197,8 @@
     window.addEventListener('scroll', updateProgress, { passive: true });
 
     if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
-      const glow = document.createElement('div');
-      glow.className = 'cursor-glow-v25';
-      document.body.appendChild(glow);
-      let gx = window.innerWidth / 2;
-      let gy = window.innerHeight / 2;
-      let tx = gx;
-      let ty = gy;
-      const moveGlow = () => {
-        gx += (tx - gx) * 0.12;
-        gy += (ty - gy) * 0.12;
-        glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
-        requestAnimationFrame(moveGlow);
-      };
-      moveGlow();
-      window.addEventListener('pointermove', (event) => { tx = event.clientX; ty = event.clientY; }, { passive: true });
-
-      const magnetSelectors = [
+      // V26: cursor glow removed. Magnetic interactions stay active.
+const magnetSelectors = [
         '.hero-btn', '.header-cta', '.line-link', '.editorial-link', '.submit-btn',
         '.scope-showcase-v24 summary', '.scope-showcase-v24__panel a',
         '.process-orbit-v16__line article', '.contact-direct-v23 a', '.contact-socials-v21 a', '.contact-socials-v23 a', '.premium-brief-popup a'
