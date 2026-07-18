@@ -17,10 +17,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=11.0.0">
-  <link rel="stylesheet" href="pages.css?v=11.0.0">
+  <link rel="stylesheet" href="style.css?v=12.0.0">
+  <link rel="stylesheet" href="pages.css?v=12.0.0">
 </head>
-<body class="subpage page-realizacje page-v11" data-page="realizacje">
+<body class="subpage page-realizacje page-v12" data-page="realizacje">
   <a class="skip-link" href="#main">Przejdź do treści</a>
   <header class="site-header site-header--solid" data-header>
     <a class="brand" href="index.html" aria-label="Monika Serbista Projektowanie Wnętrz — strona główna">
@@ -46,154 +46,185 @@
     </div>
   </div>
   <main id="main">
-    <section class="page-hero page-hero--portfolio">
+
+    <section class="page-hero page-hero--portfolio page-hero--quiet">
       <img src="editorial-motion-01.webp" alt="" fetchpriority="high">
       <div class="page-hero__shade"></div>
       <div class="page-hero__content reveal">
         <div class="breadcrumbs"><a href="index.html">Start</a><span>—</span><span>Realizacje</span></div>
         <p class="page-kicker">Portfolio</p>
-        <h1>Realizacje pokazane jak spokojny katalog pracowni.</h1>
-        <p class="page-hero__lead">Każdy projekt ma własny kadr, metraż i lokalizację. Duże połówki dają więcej powietrza niż klasyczna siatka i lepiej pokazują charakter wnętrz.</p>
+        <h1>Realizacje pokazane spokojnie, bez katalogowego hałasu.</h1>
+        <p class="page-hero__lead">Dwie połówki w rzędzie, duże kadry i dyskretne metadane na zdjęciu. Kliknij realizację, aby zobaczyć ją w powiększeniu.</p>
       </div>
-      <div class="hero-count"><span>Realizacje</span><strong>12</strong></div>
     </section>
 
-    <section class="portfolio-splits surface-concrete" id="po-hero">
-      <div class="portfolio-splits__intro reveal">
+    <section class="portfolio-halves surface-concrete" id="po-hero">
+      <div class="portfolio-halves__intro reveal">
         <p class="page-kicker dark">Wybrane prace</p>
-        <h2>Obraz po jednej stronie. Decyzje po drugiej.</h2>
-        <p>Kliknij zdjęcie, aby otworzyć ujęcie w powiększeniu. Układ jest równy, ale nie wygląda jak katalog z generatora.</p>
+        <h2>Dwa kadry obok siebie. Równy rytm aż do końca strony.</h2>
+        <p>Każdy projekt ma własny opis, miejscowość i metraż nałożone transparentnie na zdjęcie — tak, żeby informacja nie przykrywała wnętrza.</p>
       </div>
-      <div class="project-split-list">
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-salon-jasny-01.webp" data-title="Jasny apartament — Warszawa, 78 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Jasny apartament"><img src="realizacja-salon-jasny-01.webp" alt="Jasny apartament" loading="lazy"><span class="project-split__watermark">78 m²<br>Warszawa</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">01</span>
+      <div class="portfolio-halves__grid">
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-salon-jasny-01.webp" data-title="Jasny apartament — Warszawa, 78 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Jasny apartament">
+            <img src="realizacja-salon-jasny-01.webp" alt="Jasny apartament" loading="lazy">
+            <span class="portfolio-half__place">Warszawa</span>
+            <span class="portfolio-half__area">78 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Mieszkanie</p>
             <h2>Jasny apartament</h2>
             <p>Światło, miękkie tkaniny i spokojna baza, która daje wnętrzu oddech bez nadmiaru dekoracji.</p>
-            <div class="project-split__meta"><span>Warszawa</span><span>78 m²</span></div>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-dom-ogrod-01.webp" data-title="Dom z otwarciem na ogród — Ciechanów, 142 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Dom z otwarciem na ogród"><img src="realizacja-dom-ogrod-01.webp" alt="Dom z otwarciem na ogród" loading="lazy"><span class="project-split__watermark">142 m²<br>Ciechanów</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">02</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-dom-ogrod-01.webp" data-title="Dom z otwarciem na ogród — Ciechanów, 142 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Dom z otwarciem na ogród">
+            <img src="realizacja-dom-ogrod-01.webp" alt="Dom z otwarciem na ogród" loading="lazy">
+            <span class="portfolio-half__place">Ciechanów</span>
+            <span class="portfolio-half__area">142 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Dom</p>
             <h2>Dom z otwarciem na ogród</h2>
             <p>Strefa dzienna oparta na dużych przeszkleniach, drewnie i naturalnym rytmie domowego życia.</p>
-            <div class="project-split__meta"><span>Ciechanów</span><span>142 m²</span></div>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-strefa-dzienna-01.webp" data-title="Strefa dzienna — Płock, 56 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Strefa dzienna"><img src="realizacja-strefa-dzienna-01.webp" alt="Strefa dzienna" loading="lazy"><span class="project-split__watermark">56 m²<br>Płock</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">03</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-strefa-dzienna-01.webp" data-title="Strefa dzienna — Płock, 56 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Strefa dzienna">
+            <img src="realizacja-strefa-dzienna-01.webp" alt="Strefa dzienna" loading="lazy">
+            <span class="portfolio-half__place">Płock</span>
+            <span class="portfolio-half__area">56 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Mieszkanie</p>
             <h2>Strefa dzienna</h2>
             <p>Kuchnia, jadalnia i salon połączone w jedną czytelną kompozycję z dopracowanym przechowywaniem.</p>
-            <div class="project-split__meta"><span>Płock</span><span>56 m²</span></div>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-kuchnia-oliwkowa-01.webp" data-title="Kuchnia z jadalnią — Mława, 34 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Kuchnia z jadalnią"><img src="realizacja-kuchnia-oliwkowa-01.webp" alt="Kuchnia z jadalnią" loading="lazy"><span class="project-split__watermark">34 m²<br>Mława</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">04</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-kuchnia-oliwkowa-01.webp" data-title="Kuchnia z jadalnią — Mława, 34 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Kuchnia z jadalnią">
+            <img src="realizacja-kuchnia-oliwkowa-01.webp" alt="Kuchnia z jadalnią" loading="lazy">
+            <span class="portfolio-half__place">Mława</span>
+            <span class="portfolio-half__area">34 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Kuchnia</p>
             <h2>Kuchnia z jadalnią</h2>
             <p>Ciepłe drewno, ciemne akcenty i funkcjonalny układ codziennych stref.</p>
-            <div class="project-split__meta"><span>Mława</span><span>34 m²</span></div>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-lazienka-czarna-01.webp" data-title="Łazienka w kontrastach — Legionowo, 12 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Łazienka w kontrastach"><img src="realizacja-lazienka-czarna-01.webp" alt="Łazienka w kontrastach" loading="lazy"><span class="project-split__watermark">12 m²<br>Legionowo</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">05</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-lazienka-czarna-01.webp" data-title="Łazienka w kontrastach — Legionowo, 12 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Łazienka w kontrastach">
+            <img src="realizacja-lazienka-czarna-01.webp" alt="Łazienka w kontrastach" loading="lazy">
+            <span class="portfolio-half__place">Legionowo</span>
+            <span class="portfolio-half__area">12 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Łazienka</p>
             <h2>Łazienka w kontrastach</h2>
             <p>Czerń, kamień i światło prowadzone tak, żeby małe wnętrze miało większą głębię.</p>
-            <div class="project-split__meta"><span>Legionowo</span><span>12 m²</span></div>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-lazienka-pudrowa-01.webp" data-title="Łazienka z miękkim detalem — Żory, 9 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Łazienka z miękkim detalem"><img src="realizacja-lazienka-pudrowa-01.webp" alt="Łazienka z miękkim detalem" loading="lazy"><span class="project-split__watermark">9 m²<br>Żory</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">06</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-lazienka-pudrowa-01.webp" data-title="Łazienka z miękkim detalem — Żory, 9 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Łazienka z miękkim detalem">
+            <img src="realizacja-lazienka-pudrowa-01.webp" alt="Łazienka z miękkim detalem" loading="lazy">
+            <span class="portfolio-half__place">Żory</span>
+            <span class="portfolio-half__area">9 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Łazienka</p>
             <h2>Łazienka z miękkim detalem</h2>
-            <p>Delikatniejszy kierunek, ale nadal uporządkowany przez proporcje i konsekwentne materiały.</p>
-            <div class="project-split__meta"><span>Żory</span><span>9 m²</span></div>
+            <p>Subtelna paleta, zaokrąglone formy i detal, który ociepla codzienny rytuał.</p>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-sypialnia-ciemna-01.webp" data-title="Sypialnia nocna — Olsztyn, 18 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Sypialnia nocna"><img src="realizacja-sypialnia-ciemna-01.webp" alt="Sypialnia nocna" loading="lazy"><span class="project-split__watermark">18 m²<br>Olsztyn</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">07</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-sypialnia-ciemna-01.webp" data-title="Sypialnia w ciemnej palecie — Katowice, 18 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Sypialnia w ciemnej palecie">
+            <img src="realizacja-sypialnia-ciemna-01.webp" alt="Sypialnia w ciemnej palecie" loading="lazy">
+            <span class="portfolio-half__place">Katowice</span>
+            <span class="portfolio-half__area">18 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Sypialnia</p>
-            <h2>Sypialnia nocna</h2>
-            <p>Ciemniejsza, wyciszona przestrzeń z mocnym światłem bocznym i miękką warstwą tekstyliów.</p>
-            <div class="project-split__meta"><span>Olsztyn</span><span>18 m²</span></div>
+            <h2>Sypialnia w ciemnej palecie</h2>
+            <p>Ciemne drewno, miękkie światło i wyciszona atmosfera prywatnej strefy.</p>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-poddasze-sypialnia-01.webp" data-title="Sypialnia pod skosem — Gliwice, 22 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Sypialnia pod skosem"><img src="realizacja-poddasze-sypialnia-01.webp" alt="Sypialnia pod skosem" loading="lazy"><span class="project-split__watermark">22 m²<br>Gliwice</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">08</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-sypialnia-ciepla-01.webp" data-title="Sypialnia pod skosem — Olsztyn, 21 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Sypialnia pod skosem">
+            <img src="realizacja-sypialnia-ciepla-01.webp" alt="Sypialnia pod skosem" loading="lazy">
+            <span class="portfolio-half__place">Olsztyn</span>
+            <span class="portfolio-half__area">21 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Sypialnia</p>
             <h2>Sypialnia pod skosem</h2>
-            <p>Skosy potraktowane jako atut: zabudowa, światło i ściana z naturalnym rytmem materiału.</p>
-            <div class="project-split__meta"><span>Gliwice</span><span>22 m²</span></div>
+            <p>Naturalne światło, zabudowa pod skosem i spokojna geometria miękkich tkanin.</p>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-poczekalnia-01.webp" data-title="Poczekalnia gabinetu — Katowice, 31 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Poczekalnia gabinetu"><img src="realizacja-poczekalnia-01.webp" alt="Poczekalnia gabinetu" loading="lazy"><span class="project-split__watermark">31 m²<br>Katowice</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">09</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-poddasze-mural-01.webp" data-title="Pokój z muralem — Kraków, 24 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Pokój z muralem">
+            <img src="realizacja-poddasze-mural-01.webp" alt="Pokój z muralem" loading="lazy">
+            <span class="portfolio-half__place">Kraków</span>
+            <span class="portfolio-half__area">24 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
+            <p class="page-kicker">Poddasze</p>
+            <h2>Pokój z muralem</h2>
+            <p>Dekoracyjna ściana potraktowana jak część architektury, nie przypadkowa ozdoba.</p>
+          </div>
+        </article>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-poddasze-lazienka-01.webp" data-title="Łazienka pod skosem — Toruń, 11 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Łazienka pod skosem">
+            <img src="realizacja-poddasze-lazienka-01.webp" alt="Łazienka pod skosem" loading="lazy">
+            <span class="portfolio-half__place">Toruń</span>
+            <span class="portfolio-half__area">11 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
+            <p class="page-kicker">Łazienka</p>
+            <h2>Łazienka pod skosem</h2>
+            <p>Kamień, drewno i skos wykorzystany tak, żeby wnętrze pozostało lekkie i użytkowe.</p>
+          </div>
+        </article>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-poczekalnia-01.webp" data-title="Poczekalnia premium — Ciechanów, 38 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Poczekalnia premium">
+            <img src="realizacja-poczekalnia-01.webp" alt="Poczekalnia premium" loading="lazy">
+            <span class="portfolio-half__place">Ciechanów</span>
+            <span class="portfolio-half__area">38 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Komercyjne</p>
-            <h2>Poczekalnia gabinetu</h2>
-            <p>Wnętrze usługowe, które ma uspokajać klienta i jednocześnie budować profesjonalny odbiór marki.</p>
-            <div class="project-split__meta"><span>Katowice</span><span>31 m²</span></div>
+            <h2>Poczekalnia premium</h2>
+            <p>Wnętrze usługowe zaprojektowane spokojnie, z myślą o pierwszym wrażeniu klienta.</p>
           </div>
         </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-gabinet-stomatologiczny-01.webp" data-title="Gabinet stomatologiczny — Tychy, 26 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Gabinet stomatologiczny"><img src="realizacja-gabinet-stomatologiczny-01.webp" alt="Gabinet stomatologiczny" loading="lazy"><span class="project-split__watermark">26 m²<br>Tychy</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">10</span>
+        <article class="portfolio-half project-tile reveal" data-category="all" data-lightbox="realizacja-gabinet-stomatologiczny-01.webp" data-title="Gabinet stomatologiczny — Warszawa, 29 m²">
+          <button type="button" class="portfolio-half__image" aria-label="Otwórz realizację: Gabinet stomatologiczny">
+            <img src="realizacja-gabinet-stomatologiczny-01.webp" alt="Gabinet stomatologiczny" loading="lazy">
+            <span class="portfolio-half__place">Warszawa</span>
+            <span class="portfolio-half__area">29 m²</span>
+          </button>
+          <div class="portfolio-half__copy">
             <p class="page-kicker">Komercyjne</p>
             <h2>Gabinet stomatologiczny</h2>
-            <p>Czysty układ, ciepłe materiały i przestrzeń techniczna wpisana w spokojną estetykę.</p>
-            <div class="project-split__meta"><span>Tychy</span><span>26 m²</span></div>
-          </div>
-        </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-poddasze-mural-01.webp" data-title="Pokój na poddaszu — Mikołów, 19 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Pokój na poddaszu"><img src="realizacja-poddasze-mural-01.webp" alt="Pokój na poddaszu" loading="lazy"><span class="project-split__watermark">19 m²<br>Mikołów</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">11</span>
-            <p class="page-kicker">Poddasze</p>
-            <h2>Pokój na poddaszu</h2>
-            <p>Mural i naturalne światło jako główny akcent, bez przeładowania małego wnętrza.</p>
-            <div class="project-split__meta"><span>Mikołów</span><span>19 m²</span></div>
-          </div>
-        </article>
-        <article class="project-split project-tile reveal" data-category="all" data-lightbox="realizacja-salon-drewno-01.webp" data-title="Salon z kamieniem — Ruda Śląska, 44 m²">
-          <button type="button" class="project-split__image" aria-label="Otwórz realizację: Salon z kamieniem"><img src="realizacja-salon-drewno-01.webp" alt="Salon z kamieniem" loading="lazy"><span class="project-split__watermark">44 m²<br>Ruda Śląska</span></button>
-          <div class="project-split__copy">
-            <span class="project-split__index">12</span>
-            <p class="page-kicker">Salon</p>
-            <h2>Salon z kamieniem</h2>
-            <p>Mocniejszy charakter: drewno, kamienna ściana i strefa wypoczynku oparta na świetle.</p>
-            <div class="project-split__meta"><span>Ruda Śląska</span><span>44 m²</span></div>
+            <p>Funkcja medyczna zamknięta w estetyce, która nie wygląda technicznie ani chłodno.</p>
           </div>
         </article>
       </div>
     </section>
 
     <section class="quote-break quote-break--portfolio">
-      <img src="editorial-detail-03.webp" alt="Minimalistyczny detal materiałowy" loading="lazy">
+      <img src="editorial-detail-03.webp" alt="Minimalistyczna kompozycja materiałów" loading="lazy">
       <div class="quote-break__shade"></div>
-      <div class="quote-break__content reveal"><p>Dobre wnętrze nie potrzebuje nadmiaru. Potrzebuje proporcji.</p><a class="line-link line-link--light" href="kontakt.html">Zapytaj o projekt <span>↗</span></a></div>
+      <div class="quote-break__content reveal"><p>Projekt nie musi krzyczeć, żeby zostać zapamiętany.</p><a class="line-link line-link--light" href="kontakt.html">Omów swój projekt <span>↗</span></a></div>
     </section>
-  </main>
+
+    <dialog class="page-lightbox" aria-label="Podgląd realizacji">
+      <button class="page-lightbox__close" type="button" aria-label="Zamknij">×</button>
+      <button class="page-lightbox__nav page-lightbox__nav--prev" type="button" aria-label="Poprzednie zdjęcie">←</button>
+      <figure><img src="" alt=""><figcaption><strong></strong><span></span></figcaption></figure>
+      <button class="page-lightbox__nav page-lightbox__nav--next" type="button" aria-label="Następne zdjęcie">→</button>
+    </dialog>
+</main>
 
   <dialog class="page-lightbox" aria-label="Podgląd realizacji">
     <button class="page-lightbox__close" type="button" aria-label="Zamknij podgląd">×</button>
@@ -213,6 +244,6 @@
       <a href="https://kupgotowyprojekt.pl/polityka-prywatnosci/" target="_blank" rel="noopener">Polityka prywatności</a>
     </div>
   </footer>
-  <script src="pages.js?v=11.0.0" defer></script>
+  <script src="pages.js?v=12.0.0" defer></script>
 </body>
 </html>
